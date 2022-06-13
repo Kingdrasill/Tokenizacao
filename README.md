@@ -1,2 +1,1 @@
-# Tokenizacao
-Tokenização e ranqueamento de documentos
+# Tokenização e ranqueamento de documentos
