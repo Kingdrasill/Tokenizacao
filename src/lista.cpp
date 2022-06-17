@@ -5,16 +5,16 @@ void FLVazia(Lista *l){
     l->cauda=l->cabeca;
     l->cauda->prox=NULL;
 }
-void insertLista(Lista *l,string palavra){
+void insertLista(Lista *l,string palavras){
     l->cauda->prox=(Bloco*)malloc(sizeof(Bloco));
     l->cauda=l->cauda->prox;
-    l->cauda->dado.palavra=palavra;
+    l->cauda->dado.palavra.assign(palavras);
     l->cauda->prox=NULL;
 }
 void preencheLista(Lista *l){
     fstream myFile;
     int quantidadeArquivos;
-    string nomeArquivo,caminho,palavras,linha, arquivo[100];
+    string nomeArquivo,caminho,palavras,linha,linhaCorrigida, arquivo[100];
 	printf("Quantos arquivos deseja inserir? (Max 100)\n");
     scanf("%d\n",&quantidadeArquivos);
     for (int i = 0; i < quantidadeArquivos; i++)
@@ -35,10 +35,11 @@ void preencheLista(Lista *l){
             {
                 stringstream X(linha);
                 while (getline(X, palavras, ' ')){
-                    if(palavras.back() == ',' || palavras.back() =='.' || palavras.back() ==';' || palavras.back() ==':' || palavras.back() =='\'' || palavras.back() =='\"' || palavras.back() =='/'){
+                    if(palavras.back() == ',' || palavras.back() =='.' || palavras.back() ==';' || palavras.back() ==':' || palavras.back() =='\'' || palavras.back() =='\"' || palavras.back() =='/')
                         palavras.pop_back();
-                        if (palavras.front()=='\''||palavras.front()=='\"')
-                            palavras.erase(palavras.begin());
+                    if (palavras.front()=='\''||palavras.front()=='\"'||palavras.front()=='('){
+                        palavras.pop_back();
+                        palavras.erase(palavras.begin());
                     }
                     insertLista(l,palavras);
                 }
