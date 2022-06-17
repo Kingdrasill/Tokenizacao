@@ -1,8 +1,8 @@
-#include "lista.h"
+#include "lista.hpp"
 
 int main(){
 	Lista l1;
 		FLVazia(&l1);
-        preencheLista();
+        preencheLista(&l1);
 	return 0;
 }

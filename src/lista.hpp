@@ -1,15 +1,15 @@
 #ifndef LIST_FUNCTIONS
 #define LIST_FUNCTIONS
 
-#include <math.h>
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+
+using namespace std;
 
 typedef struct Bloco Bloco;
 typedef struct Item{
-    char *palavra;
+    string palavra;
 }Item;
 
 struct Bloco{
@@ -24,7 +24,7 @@ typedef struct Lista{
 
 void FLVazia(Lista *l);
 void insertLista(Lista *l,char palavra[]);
-void preencheLista();
+void preencheLista(Lista *l);
 void removeListaItem(Lista *l, int item);
 void printLista(Lista *l);
 #endif
