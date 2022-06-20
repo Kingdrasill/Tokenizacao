@@ -7,20 +7,23 @@
 
 using namespace std;
 
+typedef struct Item Item;
 typedef struct Bloco Bloco;
-typedef struct Item{
+typedef struct Lista Lista;
+
+struct Item{
     string palavra;
-}Item;
+};
 
 struct Bloco{
     Item dado;
     Bloco *prox;
 };
 
-typedef struct Lista{
+struct Lista{
     Bloco* cabeca;
     Bloco* cauda;
-}Lista;
+};
 
 void FLVazia(Lista *l);
 void insertLista(Lista *l,char palavra[]);
