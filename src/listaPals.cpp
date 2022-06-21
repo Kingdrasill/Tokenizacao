@@ -4,6 +4,7 @@
 void FLPTVazia(ListPals *lista) {
     lista->cabeca = (Bloco*)malloc(sizeof(Bloco));
     lista->cauda = lista->cabeca;
+    lista->cauda->prox = NULL;
 }
 
 // Função para inserir uma palavra em uma lista de palavras de tamanho n
@@ -54,18 +55,21 @@ void insertLPTamanho(ListPals *lista, string palavra) {
 }
 
 // Função para remover uma uma palavra em uma lista de palavras de tamanho n
-void removeLPTamanho(ListPals *lista, string palavra) {
+int removeLPTamanho(ListPals *lista, string palavra) {
     Bloco* aux;
     int tam = (int)palavra.size();
+    int removed = 0;
 
     aux = lista->cabeca;
     while(aux->prox != NULL) {
         if(aux->prox->dado.tam == tam) {
-            int removed = removeListaPalavra(&aux->prox->dado.listPal, palavra);
+            removed = removeListaPalavra(&aux->prox->dado.listPal, palavra);
             aux->prox->dado.qtd = aux->prox->dado.qtd - removed;
         }
         aux = aux->prox;
     }
+
+    return removed;
 }
 
 // Função para printar uma lista de lista de palavras de tamanho n

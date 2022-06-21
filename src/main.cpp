@@ -1,9 +1,11 @@
-#include "listaPals.hpp"
+#include "documento.hpp"
 
 int main(){
+	ListDocument LD;
 	ListPals L;
 	string palavra;
 
+	FLDVazia(&LD);
 	FLPTVazia(&L);
 	
 	palavra = "ola";
@@ -18,8 +20,16 @@ int main(){
 	insertLPTamanho(&L, palavra);
 	palavra = "carpinteiro";
 	insertLPTamanho(&L, palavra);
+
+	palavra = "doc1.txt";
+	createDocument(&LD, palavra);
+	insertLPDocument(&LD, palavra, L);
 	
-	printLPTamanho(&L);
+	palavra = "doc2.txt";
+	createDocument(&LD, palavra);
+	insertLPDocument(&LD, palavra, L);
+
+	printLPDocument(&LD);
 
 	return 0;
 }

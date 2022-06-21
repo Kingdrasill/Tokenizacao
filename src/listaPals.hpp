@@ -18,7 +18,7 @@ struct Palavras{
 
 // Estrutura para criar uma corrente de listas de palavras
 struct Bloco{
-    Palavras dado;      // Dados da palavra
+    Palavras dado;  // Dados das palavras
     Bloco *prox;    // Ponteiro para próxima palavra
 };
 
@@ -28,9 +28,9 @@ struct ListPals{
     Bloco* cauda;   // Fim da corrente
 };
 
-void FLPTVazia(ListPals *lista);                         // Esvazia uma lista de lista de palavras
-void insertLPTamanho(ListPals *lista, string palavra);        // Insere uma palavra em uma lista de palavras de tamanho n
-void removeLPTamanho(ListPals *lista, string palavra);   // Remove uma uma palavra em uma lista de palavras de tamanho n
-void printLPTamanho(ListPals *lista);                    // Printa uma lista de lista de palavras
+void FLPTVazia(ListPals *lista);                        // Esvazia uma lista de lista de palavras
+void insertLPTamanho(ListPals *lista, string palavra);  // Insere uma palavra em uma lista de palavras de tamanho n
+int removeLPTamanho(ListPals *lista, string palavra);   // Remove uma uma palavra em uma lista de palavras de tamanho n
+void printLPTamanho(ListPals *lista);                   // Printa uma lista de lista de palavras
 
 #endif
