@@ -1,23 +1,25 @@
-#include "palavra.hpp"
+#include "listaPals.hpp"
 
 int main(){
-	WordList L;
-	Word aux;
-	string palavra = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-	int i=0;
+	ListPals L;
+	string palavra;
 
-	FLPVazia(&L);
+	FLPTVazia(&L);
 	
-	while(i < 1000) {
-		for(size_t j=0; j<palavra.size(); j++) {
-			palavra.at(j) = static_cast<char>(rand()%93+33);
-		}
-		aux.palavra = palavra;
-		insertListaPalavra(&L, aux);
-		i++;
-	}
+	palavra = "ola";
+	insertLPTamanho(&L, palavra);
+	palavra = "ola";
+	insertLPTamanho(&L, palavra);
+	palavra = "olo";
+	insertLPTamanho(&L, palavra);
+	palavra = "casa";
+	insertLPTamanho(&L, palavra);
+	palavra = "casal";
+	insertLPTamanho(&L, palavra);
+	palavra = "carpinteiro";
+	insertLPTamanho(&L, palavra);
 
-	printListaPalavra(&L);
+	printLPTamanho(&L);
 
 	return 0;
 }
