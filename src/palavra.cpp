@@ -5,7 +5,6 @@ void FLPVazia(WordList *lista) {
     lista->cabeca = (Block*)malloc(sizeof(Block));
     lista->cauda = lista->cabeca;
     lista->cauda->prox = NULL;
-    lista->qtdPals = 0;
 }
 
 // Função para inserir uma palavra em uma lista de palavras
@@ -36,14 +35,12 @@ void insertListaPalavra(WordList *lista, string palavra) {
             if(tmp->prox == NULL)
                 lista->cauda = tmp;
         }
-        lista->qtdPals++;
     } 
     else {        // Caso a lista estiver vazia adionar a palavra de uma vez na lista
         lista->cauda->prox = (Block*)malloc(sizeof(Block));
         lista->cauda = lista->cauda->prox;
         lista->cauda->dado = word;
         lista->cauda->prox=NULL;
-        lista->qtdPals++;
     }
 }
 
@@ -76,8 +73,6 @@ int removeListaPalavra(WordList *lista, string palavra) {
             aux=aux->prox;
         }
     }
-
-    lista->qtdPals = lista->qtdPals - removed;
 
     return removed;
 }

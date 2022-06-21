@@ -18,7 +18,7 @@ int main(){
 	insertLPTamanho(&L, palavra);
 	palavra = "carpinteiro";
 	insertLPTamanho(&L, palavra);
-
+	
 	printLPTamanho(&L);
 
 	return 0;

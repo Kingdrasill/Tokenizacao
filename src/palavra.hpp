@@ -28,7 +28,6 @@ struct Block{
 struct WordList{
     Block* cabeca;  // Início da corrente
     Block* cauda;   // Fim da corrente
-    short int qtdPals; 
 };
 
 void FLPVazia(WordList *lista);                             // Esvazia uma lista de palavras

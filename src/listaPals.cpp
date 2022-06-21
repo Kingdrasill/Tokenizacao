@@ -53,7 +53,6 @@ void insertLPTamanho(ListPals *lista, string palavra) {
     }
 }
 
-// Arrumar este !!!!!!!!!!!!!!!!!!!!!!!!
 // Função para remover uma uma palavra em uma lista de palavras de tamanho n
 void removeLPTamanho(ListPals *lista, string palavra) {
     Bloco* aux;
@@ -65,6 +64,7 @@ void removeLPTamanho(ListPals *lista, string palavra) {
             int removed = removeListaPalavra(&aux->prox->dado.listPal, palavra);
             aux->prox->dado.qtd = aux->prox->dado.qtd - removed;
         }
+        aux = aux->prox;
     }
 }
 
@@ -74,9 +74,8 @@ void printLPTamanho(ListPals *lista) {
     aux = lista->cabeca;
     while (aux->prox != NULL)
     {
-        cout << "Palavras de tamanho " << aux->prox->dado.tam << ":" << endl;
+        cout << "Palavras de tamanho " << aux->prox->dado.tam << " - Quantidade " << aux->prox->dado.qtd << " :" << endl;
         printListaPalavra(&aux->prox->dado.listPal);
         aux=aux->prox;
     }
-    printf("\n");
 }
