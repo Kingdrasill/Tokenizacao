@@ -6,6 +6,7 @@ int main(){
 	FLDVazia(&LD);
 	FLPTVazia(&StpW);
 	preencheLista(&LD);
+	preencheListaStpW(&StpW);
 	printLPDocument(&LD);
 	printLPTamanho(&StpW);
 

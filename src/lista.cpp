@@ -55,8 +55,11 @@ void preencheListaStpW(ListPals *lPal){
     if (!myFile)
         printf("Arquivo não encontrado\n");
     else{
-        while (getline(myFile,palavras,'\n'))
+        while (getline(myFile,palavras,'\n')){
+            if (palavras.back()==' ')
+                palavras.pop_back();
             insertLPTamanho(lPal,palavras);
+        }
     }
     myFile.close();
     
