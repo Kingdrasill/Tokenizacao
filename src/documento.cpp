@@ -2,28 +2,28 @@
 
 // Função para esvaziar uma lista de documentos
 void FLDVazia(ListDocument *lista) {
-    lista->cabeca = (Bloque*)malloc(sizeof(Bloque));
+    lista->cabeca = new(Bloque);
     lista->cauda = lista->cabeca;
-    lista->cauda->prox = NULL;
+    lista->cauda->prox = nullptr;
 }
 
 // Função para criar um novo documento
-void createDocument(ListDocument *lista, string nome) {
+void createDocument(ListDocument *lista, std::string nome) {
     Documento doc;
     doc.nome = nome;
     doc.qtd = 0;
     FLPTVazia(&doc.documento);
-    lista->cauda->prox = (Bloque*)malloc(sizeof(Bloque));
+    lista->cauda->prox = new(Bloque);
     lista->cauda = lista->cauda->prox;
     lista->cauda->dado = doc;
-    lista->cauda->prox=NULL;
+    lista->cauda->prox=nullptr;
 }
 
 // Função para inserir palavras em um documento
-void insertLPDocument(ListDocument *lista, string nome, ListPals palavras) {
+void insertLPDocument(ListDocument *lista, std::string nome, ListPals palavras) {
     Bloque* aux;
     aux = lista->cabeca;
-    while(aux->prox != NULL) {
+    while(aux->prox != nullptr) {
         if(aux->prox->dado.nome == nome) {
             aux->prox->dado.documento = palavras;
         }
@@ -32,18 +32,18 @@ void insertLPDocument(ListDocument *lista, string nome, ListPals palavras) {
 }
 
 // Função para remover um documento
-void removeDocument(ListDocument *lista, string nome) {
+void removeDocument(ListDocument *lista, std::string nome) {
     Bloque *aux, *freeBloco;
     
     aux = lista->cabeca;
-    while (aux->prox!=NULL)
+    while (aux->prox!=nullptr)
     {
         if (aux->prox->dado.nome == nome)   // Verifica se a palavra da próxima posição tem a mesma
         {                                                                                                                       // inicial, o mesmo valor ASCii e se é a mesma palavra que
             if (aux->prox == lista->cauda)                                                                                      // a palavra dada
             {
                 free(aux->prox);
-                aux->prox = NULL;
+                aux->prox = nullptr;
                 lista->cauda = aux;
             }
             else {
@@ -62,9 +62,9 @@ void removeDocument(ListDocument *lista, string nome) {
 void printLPDocument(ListDocument *lista) {
     Bloque* aux;
     aux = lista->cabeca;
-    while (aux->prox != NULL)
+    while (aux->prox != nullptr)
     {
-        cout << "Documento " << aux->prox->dado.nome << ": " << endl;
+        printf("Documento %s: \n", aux->prox->dado.nome.c_str());
         printLPTamanho(&aux->prox->dado.documento);
         aux=aux->prox;
     }

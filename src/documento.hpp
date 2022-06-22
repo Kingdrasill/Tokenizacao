@@ -3,8 +3,6 @@
 
 #include "listaPals.hpp"
 
-using namespace std;
-
 typedef struct Documento Documento;
 typedef struct Bloque Bloque;
 typedef struct ListDocument ListDocument;
@@ -12,7 +10,7 @@ typedef struct ListDocument ListDocument;
 // Estrutura que guarda um documento
 struct Documento{
     ListPals documento;
-    string nome;
+    std::string nome;
     int qtd;
 };
 
@@ -29,9 +27,9 @@ struct ListDocument{
 };
 
 void FLDVazia(ListDocument *lista);                                            // Esvazia uma lista de documentos
-void createDocument(ListDocument *lista, string nome);                         // Cria um novo documento
-void insertLPDocument(ListDocument *lista, string nome, ListPals palavras);    // Insere palavras em um documento
-void removeDocument(ListDocument *lista, string nome);                         // Remove um documento
+void createDocument(ListDocument *lista, std::string nome);                         // Cria um novo documento
+void insertLPDocument(ListDocument *lista, std::string nome, ListPals palavras);    // Insere palavras em um documento
+void removeDocument(ListDocument *lista, std::string nome);                         // Remove um documento
 void printLPDocument(ListDocument *lista);                                     // Printa uma lista de documentos
 
 #endif

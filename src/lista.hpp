@@ -5,7 +5,6 @@
 #include <sstream>
 #include "documento.hpp"
 
-using namespace std;
 void preencheLista(ListDocument *l);
 
 #endif

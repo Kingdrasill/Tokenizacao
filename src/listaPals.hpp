@@ -3,8 +3,6 @@
 
 #include "palavra.hpp"
 
-using namespace std;
-
 typedef struct Palavras Palavras;
 typedef struct Bloco Bloco;
 typedef struct ListPals ListPals;
@@ -29,8 +27,8 @@ struct ListPals{
 };
 
 void FLPTVazia(ListPals *lista);                        // Esvazia uma lista de lista de palavras
-void insertLPTamanho(ListPals *lista, string palavra);  // Insere uma palavra em uma lista de palavras de tamanho n
-int removeLPTamanho(ListPals *lista, string palavra);   // Remove uma uma palavra em uma lista de palavras de tamanho n
+void insertLPTamanho(ListPals *lista, std::string palavra);  // Insere uma palavra em uma lista de palavras de tamanho n
+int removeLPTamanho(ListPals *lista, std::string palavra);   // Remove uma uma palavra em uma lista de palavras de tamanho n
 void printLPTamanho(ListPals *lista);                   // Printa uma lista de lista de palavras
 
 #endif

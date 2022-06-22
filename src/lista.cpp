@@ -2,30 +2,30 @@
 
 void preencheLista(ListDocument *lDoc){
 	ListPals lPal;
-    fstream myFile;
+    std::fstream myFile;
     int quantidadeArquivos;
-    string nomeArquivo,caminho,palavras,linha;
+    std::string nomeArquivo,caminho,palavras,linha;
 	printf("Quantos arquivos deseja inserir? (Max 100)\n");
     scanf("%d\n",&quantidadeArquivos);
     for (int i = 0; i < quantidadeArquivos; i++)
     {
         caminho="arquivos/";
-        getline(cin, nomeArquivo);
+        getline(std::cin, nomeArquivo);
         caminho.append(nomeArquivo);
 	    createDocument(lDoc, nomeArquivo);
     }
     Bloque *aux;
     aux=lDoc->cabeca;
-    while (aux->prox!=NULL)
+    while (aux->prox!=nullptr)
     {
 	    FLPTVazia(&lPal);
-        myFile.open(aux->prox->dado.nome, ios::in);
+        myFile.open(aux->prox->dado.nome, std::ios::in);
         if (!myFile)
-            cout<< "Arquivo não encontrado"<<endl;
+            printf("Arquivo não encontrado\n");
         else{
             while (getline(myFile,linha,'\n'))
             {
-                stringstream X(linha);
+                std::stringstream X(linha);
                 while (getline(X, palavras, ' ')){
                     if(palavras.back() == ',' || palavras.back() =='.' || palavras.back() ==';' || palavras.back() ==':' || palavras.back() =='\'' || palavras.back() =='\"' || palavras.back() =='/')
                         palavras.pop_back();
