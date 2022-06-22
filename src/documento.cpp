@@ -1,27 +1,20 @@
 #include "documento.hpp"
 
-// Função para esvaziar uma lista de documentos
-void FLDVazia(ListDocument *lista) {
-    lista->cabeca = new Bloque;
-    lista->cauda = lista->cabeca;
-    lista->cauda->prox = nullptr;
-}
-
 // Função para criar um novo documento
-void createDocument(ListDocument *lista, std::string nome) {
+void createDocument(List<Documento> *lista, std::string nome) {
     Documento doc;
     doc.nome = nome;
     doc.qtd = 0;
-    FLPTVazia(&doc.documento);
-    lista->cauda->prox = new Bloque;
+    FLVazia(&doc.documento);
+    lista->cauda->prox = new Block<Documento>;
     lista->cauda = lista->cauda->prox;
     lista->cauda->dado = doc;
     lista->cauda->prox=nullptr;
 }
 
 // Função para inserir palavras em um documento
-void insertLPDocument(ListDocument *lista, std::string nome, ListPals palavras) {
-    Bloque* aux;
+void insertLPDocument(List<Documento> *lista, std::string nome, List<Palavras> palavras) {
+    Block<Documento>* aux;
     aux = lista->cabeca;
     while(aux->prox != nullptr) {
         if(aux->prox->dado.nome == nome) {
@@ -32,8 +25,8 @@ void insertLPDocument(ListDocument *lista, std::string nome, ListPals palavras) 
 }
 
 // Função para remover um documento
-void removeDocument(ListDocument *lista, std::string nome) {
-    Bloque *aux, *freeBloco;
+void removeDocument(List<Documento> *lista, std::string nome) {
+    Block<Documento> *aux, *freeBloco;
     
     aux = lista->cabeca;
     while (aux->prox!=nullptr)
@@ -59,8 +52,8 @@ void removeDocument(ListDocument *lista, std::string nome) {
 }
 
 // Função para printar uma lista de documentos
-void printLPDocument(ListDocument *lista) {
-    Bloque* aux;
+void printLPDocument(List<Documento> *lista) {
+    Block<Documento>* aux;
     aux = lista->cabeca;
     while (aux->prox != nullptr)
     {

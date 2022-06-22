@@ -1,10 +1,10 @@
 #include "lista.hpp"
 
 int main(){
-	ListDocument LD;
-	ListPals StpW;
-	FLDVazia(&LD);
-	FLPTVazia(&StpW);
+	List<Documento> LD;
+	List<Palavras> StpW;
+	FLVazia(&LD);
+	FLVazia(&StpW);
 	preencheLista(&LD);
 	preencheListaStpW(&StpW);
 	printLPDocument(&LD);

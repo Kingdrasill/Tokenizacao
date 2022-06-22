@@ -7,7 +7,7 @@
 #include <cctype>
 #include "documento.hpp"
 
-void preencheLista(ListDocument *l);
-void preencheListaStpW(ListPals *lPal);
+void preencheLista(List<Documento> *l);
+void preencheListaStpW(List<Palavras> *lPal);
 
 #endif

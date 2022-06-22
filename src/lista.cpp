@@ -1,7 +1,7 @@
 #include "lista.hpp"
 
-void preencheLista(ListDocument *lDoc){
-	ListPals lPal;
+void preencheLista(List<Documento> *lDoc){
+	List<Palavras> lPal;
     std::fstream myFile;
     int quantidadeArquivos;
     std::string nomeArquivo,caminho,palavras,linha;
@@ -13,11 +13,11 @@ void preencheLista(ListDocument *lDoc){
         getline(std::cin, nomeArquivo);
 	    createDocument(lDoc, nomeArquivo);
     }
-    Bloque *aux;
+    Block<Documento> *aux;
     aux=lDoc->cabeca;
     while (aux->prox!=nullptr)
     {
-	    FLPTVazia(&lPal);
+	    FLVazia(&lPal);
         caminho="arquivos/";
         myFile.open(caminho.append(aux->prox->dado.nome));
         if (!myFile)
@@ -47,7 +47,7 @@ void preencheLista(ListDocument *lDoc){
     }
     
 }
-void preencheListaStpW(ListPals *lPal){
+void preencheListaStpW(List<Palavras> *lPal){
     std::fstream myFile;
     std::string caminho,palavras;
     caminho="arquivos/stopwords.txt";

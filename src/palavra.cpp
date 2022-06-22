@@ -1,14 +1,7 @@
 #include "palavra.hpp"
 
-// Função para esvaziar luma lista de palavras
-void FLPVazia(WordList *lista) {
-    lista->cabeca = new Block;
-    lista->cauda = lista->cabeca;
-    lista->cauda->prox = nullptr;
-}
-
 // Função para inserir uma palavra em uma lista de palavras
-void insertListaPalavra(WordList *lista, std::string palavra) {
+void insertListaPalavra(List<Word> *lista, std::string palavra) {
     Word word;
     word.palavra = palavra;
     word.qtd = 1;
@@ -17,8 +10,8 @@ void insertListaPalavra(WordList *lista, std::string palavra) {
 
     if(lista->cabeca != lista->cauda)               // Caso a lista não esteja vazia
     {
-        Block* tmp = new Block; // Novo elemento na lista
-        Block* aux;                                 // Variável auxiliar para andar na lista
+        Block<Word>* tmp = new Block<Word>; // Novo elemento na lista
+        Block<Word>* aux;                                 // Variável auxiliar para andar na lista
 
         tmp->dado = word;
         aux = lista->cabeca;
@@ -37,7 +30,7 @@ void insertListaPalavra(WordList *lista, std::string palavra) {
         }
     } 
     else {        // Caso a lista estiver vazia adionar a palavra de uma vez na lista
-        lista->cauda->prox = new Block;
+        lista->cauda->prox = new Block<Word>;
         lista->cauda = lista->cauda->prox;
         lista->cauda->dado = word;
         lista->cauda->prox=nullptr;
@@ -45,9 +38,9 @@ void insertListaPalavra(WordList *lista, std::string palavra) {
 }
 
 // Função para remover uma palavra de uma lista de palavras
-int removeListaPalavra(WordList *lista, std::string palavra) {
+int removeListaPalavra(List<Word> *lista, std::string palavra) {
     int removed = 0;
-    Block *aux, *freeBloco;
+    Block<Word> *aux, *freeBloco;
     short int valor = calcularValorPalavra(palavra);
     
     aux = lista->cabeca;
@@ -78,8 +71,8 @@ int removeListaPalavra(WordList *lista, std::string palavra) {
 }
 
 // Função para printar uma lista de palavras
-void printListaPalavra(WordList *lista) {
-    Block* aux;
+void printListaPalavra(List<Word> *lista) {
+    Block<Word>* aux;
     aux = lista->cabeca;
     while (aux->prox != nullptr)
     {
