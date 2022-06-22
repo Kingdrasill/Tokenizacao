@@ -2,7 +2,7 @@
 
 // Função para esvaziar uma lista de lista de palavras
 void FLPTVazia(ListPals *lista) {
-    lista->cabeca = new(Bloco);
+    lista->cabeca = new Bloco;
     lista->cauda = lista->cabeca;
     lista->cauda->prox = nullptr;
 }
@@ -20,13 +20,13 @@ void insertLPTamanho(ListPals *lista, std::string palavra) {
         FLPVazia(&palavras.listPal);
         insertListaPalavra(&palavras.listPal, palavra);  // Inseri a palavra na lista de palavra de tamanha n
 
-        lista->cauda->prox = new(Bloco);
+        lista->cauda->prox = new Bloco;
         lista->cauda = lista->cauda->prox;
         lista->cauda->dado = palavras;
         lista->cauda->prox=nullptr;
     }
     else {
-        Bloco* tmp = new(Bloco); // Caso necessário um novo elemento na lista
+        Bloco* tmp = new Bloco; // Caso necessário um novo elemento na lista
         Bloco* aux;                                 // Variável auxiliar para andar na lista
 
         aux = lista->cabeca;

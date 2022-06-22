@@ -2,7 +2,7 @@
 
 // Função para esvaziar luma lista de palavras
 void FLPVazia(WordList *lista) {
-    lista->cabeca = new(Block);
+    lista->cabeca = new Block;
     lista->cauda = lista->cabeca;
     lista->cauda->prox = nullptr;
 }
@@ -17,7 +17,7 @@ void insertListaPalavra(WordList *lista, std::string palavra) {
 
     if(lista->cabeca != lista->cauda)               // Caso a lista não esteja vazia
     {
-        Block* tmp = new(Block); // Novo elemento na lista
+        Block* tmp = new Block; // Novo elemento na lista
         Block* aux;                                 // Variável auxiliar para andar na lista
 
         tmp->dado = word;
@@ -37,7 +37,7 @@ void insertListaPalavra(WordList *lista, std::string palavra) {
         }
     } 
     else {        // Caso a lista estiver vazia adionar a palavra de uma vez na lista
-        lista->cauda->prox = new(Block);
+        lista->cauda->prox = new Block;
         lista->cauda = lista->cauda->prox;
         lista->cauda->dado = word;
         lista->cauda->prox=nullptr;
@@ -53,7 +53,7 @@ int removeListaPalavra(WordList *lista, std::string palavra) {
     aux = lista->cabeca;
     while (aux->prox!=nullptr)
     {
-        if (aux->prox->dado.initial == palavra.at(0) && aux->prox->dado.value == valor && aux->prox->dado.palavra == palavra)   // Verifica se a palavra da próxima posição tem a mesma
+        if (aux->prox->dado.value == valor && aux->prox->dado.initial == palavra.at(0) && aux->prox->dado.palavra == palavra)   // Verifica se a palavra da próxima posição tem a mesma
         {                                                                                                                       // inicial, o mesmo valor ASCii e se é a mesma palavra que
             if (aux->prox == lista->cauda)                                                                                      // a palavra dada
             {

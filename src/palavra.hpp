@@ -2,6 +2,7 @@
 #define PALAVRA_HPP
 
 #include <iostream>
+#include <cstring>
 
 typedef struct Word Word;
 typedef struct Block Block;

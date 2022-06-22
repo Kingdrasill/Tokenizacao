@@ -2,7 +2,7 @@
 
 // Função para esvaziar uma lista de documentos
 void FLDVazia(ListDocument *lista) {
-    lista->cabeca = new(Bloque);
+    lista->cabeca = new Bloque;
     lista->cauda = lista->cabeca;
     lista->cauda->prox = nullptr;
 }
@@ -13,7 +13,7 @@ void createDocument(ListDocument *lista, std::string nome) {
     doc.nome = nome;
     doc.qtd = 0;
     FLPTVazia(&doc.documento);
-    lista->cauda->prox = new(Bloque);
+    lista->cauda->prox = new Bloque;
     lista->cauda = lista->cauda->prox;
     lista->cauda->dado = doc;
     lista->cauda->prox=nullptr;
