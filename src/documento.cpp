@@ -10,6 +10,7 @@ void createDocument(List<Documento> *lista, std::string nome) {
     lista->cauda = lista->cauda->prox;
     lista->cauda->dado = doc;
     lista->cauda->prox=nullptr;
+    lista->qtd++;
 }
 
 // Função para inserir palavras em um documento
@@ -19,6 +20,7 @@ void insertLPDocument(List<Documento> *lista, std::string nome, List<Palavras> p
     while(aux->prox != nullptr) {
         if(aux->prox->dado.nome == nome) {
             aux->prox->dado.documento = palavras;
+            aux->prox->dado.qtd = palavras.qtd;
         }
         aux = aux->prox;
     }
@@ -27,12 +29,13 @@ void insertLPDocument(List<Documento> *lista, std::string nome, List<Palavras> p
 // Função para remover um documento
 void removeDocument(List<Documento> *lista, std::string nome) {
     Block<Documento> *aux, *freeBloco;
-    
+    bool removed = false;
     aux = lista->cabeca;
     while (aux->prox!=nullptr)
     {
         if (aux->prox->dado.nome == nome)   // Verifica se a palavra da próxima posição tem a mesma
-        {                                                                                                                       // inicial, o mesmo valor ASCii e se é a mesma palavra que
+        {  
+            removed = true;                                                                                                                     // inicial, o mesmo valor ASCii e se é a mesma palavra que
             if (aux->prox == lista->cauda)                                                                                      // a palavra dada
             {
                 free(aux->prox);
@@ -49,6 +52,8 @@ void removeDocument(List<Documento> *lista, std::string nome) {
             aux=aux->prox;
         }
     }
+    if(removed)
+        lista->qtd--;
 }
 
 // Função para printar uma lista de documentos
@@ -57,7 +62,7 @@ void printLPDocument(List<Documento> *lista) {
     aux = lista->cabeca;
     while (aux->prox != nullptr)
     {
-        printf("Documento %s: \n", aux->prox->dado.nome.c_str());
+        printf("Documento %s,%d: \n", aux->prox->dado.nome.c_str(), aux->prox->dado.qtd);
         printLPTamanho(&aux->prox->dado.documento);
         aux=aux->prox;
     }

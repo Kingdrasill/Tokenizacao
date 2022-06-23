@@ -35,6 +35,7 @@ void insertListaPalavra(List<Word> *lista, std::string palavra) {
         lista->cauda->dado = word;
         lista->cauda->prox=nullptr;
     }
+    lista->qtd++;
 }
 
 // Função para remover uma palavra de uma lista de palavras
@@ -66,7 +67,7 @@ int removeListaPalavra(List<Word> *lista, std::string palavra) {
             aux=aux->prox;
         }
     }
-
+    lista->qtd = lista->qtd - removed;
     return removed;
 }
 

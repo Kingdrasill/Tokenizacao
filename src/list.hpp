@@ -13,6 +13,7 @@ template <typename T>
 struct List{
     Block<T>* cabeca;  // Início da corrente
     Block<T>* cauda;   // Fim da corrente
+    int qtd;           // Quantidade de elementos
 };
 
 // Esvazia uma lista de palavras
@@ -21,6 +22,7 @@ void FLVazia(List<T> *lista){
     lista->cabeca = new Block<T>;
     lista->cauda = lista->cabeca;
     lista->cauda->prox = nullptr;
+    lista->qtd = 0;
 };
 
 #endif

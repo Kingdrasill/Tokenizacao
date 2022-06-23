@@ -45,6 +45,7 @@ void insertLPTamanho(List<Palavras> *lista, std::string palavra) {
                 lista->cauda = tmp;
         }
     }
+    lista->qtd++;
 }
 
 // Função para remover uma uma palavra em uma lista de palavras de tamanho n
@@ -61,7 +62,7 @@ int removeLPTamanho(List<Palavras> *lista, std::string palavra) {
         }
         aux = aux->prox;
     }
-
+    lista->qtd = lista->qtd - removed;
     return removed;
 }
 
