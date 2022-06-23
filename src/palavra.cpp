@@ -93,3 +93,20 @@ short int calcularValorPalavra(std::string palavra) {
 
     return value;
 }
+
+bool pesquisaPalavra(List<Word> *lista, std::string palavra)
+{
+    Block<Word> *aux, *freeBloco;
+    short int valor = calcularValorPalavra(palavra);
+    
+    aux = lista->cabeca;
+    while (aux->prox!=nullptr)
+    {
+        if (aux->prox->dado.value == valor && aux->prox->dado.initial == palavra.at(0) && aux->prox->dado.palavra == palavra)  
+            return true;
+        else 
+            aux=aux->prox;
+    }
+
+    return false;
+}

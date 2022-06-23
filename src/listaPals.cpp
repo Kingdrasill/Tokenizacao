@@ -77,3 +77,17 @@ void printLPTamanho(List<Palavras> *lista) {
         aux=aux->prox;
     }
 }
+
+bool buscaLPTamanho(List<Palavras> *lista, std::string palavra) {
+    Block<Palavras>* aux;
+    int tam = static_cast<int> (palavra.size());
+
+    aux = lista->cabeca;
+    while(aux->prox != nullptr) {
+        if(aux->prox->dado.tam == tam) 
+            return pesquisaPalavra(&aux->prox->dado.listPal, palavra);
+
+        aux = aux->prox;
+    }
+    return false;
+}
