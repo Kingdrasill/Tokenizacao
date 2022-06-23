@@ -9,7 +9,6 @@ void insertLPTamanho(List<Palavras> *lista, std::string palavra) {
     if(lista->cabeca == lista->cauda)   // Caso a lista esteja vazia
     {
         palavras.qtd = 1;
-        palavras.tam = tam;
         FLVazia(&palavras.listPal);
         insertListaPalavra(&palavras.listPal, palavra);  // Inseri a palavra na lista de palavra de tamanha n
 
@@ -53,16 +52,23 @@ int removeLPTamanho(List<Palavras> *lista, std::string palavra) {
     Block<Palavras>* aux;
     int tam = static_cast<int> (palavra.size());
     int removed = 0;
-
+    
     aux = lista->cabeca;
     while(aux->prox != nullptr) {
         if(aux->prox->dado.tam == tam) {
             removed = removeListaPalavra(&aux->prox->dado.listPal, palavra);
             aux->prox->dado.qtd = aux->prox->dado.qtd - removed;
+            if(aux->prox != nullptr && aux->prox->dado.qtd == 0) {
+                aux->prox = aux->prox->prox;
+            } else if(aux->prox == nullptr && aux->prox->dado.qtd == 0) {
+                aux->prox = nullptr;
+                lista->cauda = aux;
+            }
         }
         aux = aux->prox;
     }
     lista->qtd = lista->qtd - removed;
+
     return removed;
 }
 

@@ -10,9 +10,10 @@ struct Documento{
     int qtd;
 };
 
-void createDocument(List<Documento> *lista, std::string nome);                         // Cria um novo documento
+void createDocument(List<Documento> *lista, std::string nome);                               // Cria um novo documento
 void insertLPDocument(List<Documento> *lista, std::string nome, List<Palavras> palavras);    // Insere palavras em um documento
-void removeDocument(List<Documento> *lista, std::string nome);                         // Remove um documento
-void printLPDocument(List<Documento> *lista);                                     // Printa uma lista de documentos
+void removeDocument(List<Documento> *lista, std::string nome);                               // Remove um documento
+void removeWordFromDocuments(List<Documento> *lista, std::string palavra);                        // Remove uma palavra de todos documentos
+void printLPDocument(List<Documento> *lista);                                                // Printa uma lista de documentos
 
 #endif

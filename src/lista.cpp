@@ -64,3 +64,21 @@ void preencheListaStpW(List<Palavras> *lPal){
     myFile.close();
     
 }
+
+
+void removeStopWords(List<Documento> *docs, List<Palavras> *stopWords) {
+    Block<Palavras> *SWRunner;
+    Block<Word> *WordRunner;
+
+    SWRunner = stopWords->cabeca;
+    while(SWRunner->prox != NULL) {
+        SWRunner = SWRunner->prox;
+        WordRunner = SWRunner->dado.listPal.cabeca;
+        while(WordRunner->prox != NULL) {
+            WordRunner = WordRunner->prox;
+            removeWordFromDocuments(docs, WordRunner->dado.palavra);
+        }
+    }
+
+    FLVazia(stopWords);
+}

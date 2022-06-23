@@ -16,7 +16,7 @@ void insertListaPalavra(List<Word> *lista, std::string palavra) {
         tmp->dado = word;
         aux = lista->cabeca;
         while (aux->prox != nullptr && aux->prox->dado.value < word.value) {   // Achar a posição em que a nova palavra deve ser inserida, está posição
-            aux = aux->prox;                                                // é em que o valor ASCii da palavra é maior do que o valor da palavra anterior
+            aux = aux->prox;                                                   // é em que o valor ASCii da palavra é maior do que o valor da palavra anterior
         }
         if(aux->prox != nullptr && aux->prox->dado.value == word.value && aux->prox->dado.initial == word.initial && aux->prox->dado.palavra == word.palavra)
         {
@@ -67,7 +67,14 @@ int removeListaPalavra(List<Word> *lista, std::string palavra) {
             aux=aux->prox;
         }
     }
+
     lista->qtd = lista->qtd - removed;
+
+    if(lista->cabeca == lista->cauda && lista->qtd > 0) {
+        removed += lista->qtd;
+        lista->qtd = lista->qtd - removed;
+    }
+
     return removed;
 }
 

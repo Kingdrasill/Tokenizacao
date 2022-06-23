@@ -56,6 +56,18 @@ void removeDocument(List<Documento> *lista, std::string nome) {
         lista->qtd--;
 }
 
+// Função para remover uma palavra de todos documentos
+void removeWordFromDocuments(List<Documento> *lista, std::string palavra) {
+    Block<Documento> *aux;
+
+    aux = lista->cabeca;
+    while(aux->prox != NULL) {
+        aux = aux->prox;
+        int x = removeLPTamanho(&aux->dado.documento, palavra);
+        aux->dado.qtd = aux->dado.qtd - x;
+    }
+}
+
 // Função para printar uma lista de documentos
 void printLPDocument(List<Documento> *lista) {
     Block<Documento>* aux;
