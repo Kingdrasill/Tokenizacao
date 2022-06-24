@@ -29,12 +29,10 @@ void preencheLista(List<Documento> *lDoc){
                 while (getline(X, palavras, ' ')){
                     if (palavras.size()>0)
                     {
-                        while(palavras.back() == ',' || palavras.back() =='.' || palavras.back() ==';' || palavras.back() ==':' || palavras.back() ==')' || palavras.back() =='\'' || palavras.back() =='\"' || palavras.back() =='/')
+                        while(palavras.back() == ',' || palavras.back() =='.' || palavras.back() =='!' || palavras.back() =='?' || palavras.back() ==';' || palavras.back() ==':' || palavras.back() ==')' || palavras.back() =='-' || palavras.back() =='\'' || palavras.back() =='\"' || palavras.back() =='/')
                             palavras.pop_back();
-                        if (palavras.front()=='\''||palavras.front()=='\"'||palavras.front()=='('){
-                            palavras.pop_back();
+                        while(palavras.front()=='('||palavras.front()=='-'||palavras.front()=='\''||palavras.front()=='\"')
                             palavras.erase(palavras.begin());
-                        }
                         std::transform(palavras.begin(), palavras.end(), palavras.begin(),[](unsigned char c){ return std::tolower(c); });
                         insertLPTamanho(&lPal,palavras);
                     }
