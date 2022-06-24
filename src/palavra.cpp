@@ -18,15 +18,39 @@ void insertListaPalavra(List<Word> *lista, std::string palavra) {
         while (aux->prox != nullptr && aux->prox->dado.value < word.value) {   // Achar a posição em que a nova palavra deve ser inserida, está posição
             aux = aux->prox;                                                   // é em que o valor ASCii da palavra é maior do que o valor da palavra anterior
         }
-        if(aux->prox != nullptr && aux->prox->dado.value == word.value && aux->prox->dado.initial == word.initial && aux->prox->dado.palavra == word.palavra)
+        if(aux->prox == nullptr)
         {
-            aux->prox->dado.qtd++;
-        }
-        else {
             tmp->prox = aux->prox;
             aux->prox = tmp;
-            if(tmp->prox == nullptr)
-                lista->cauda = tmp;
+            lista->cauda = tmp;
+        }
+        else {
+            if(aux->prox->dado.value > word.value) 
+            {
+                tmp->prox = aux->prox;
+                aux->prox = tmp;
+                if(tmp->prox == nullptr)
+                    lista->cauda = tmp;
+            } else {
+                while(aux->prox != nullptr && aux->prox->dado.value == word.value && aux->prox->dado.initial != word.palavra.at(0) && aux->prox->dado.palavra != word.palavra) {
+                    aux = aux->prox;
+                }
+                if(aux->prox == nullptr) 
+                {
+                    tmp->prox = aux->prox;
+                    aux->prox = tmp;
+                    lista->cauda = tmp;
+                } else if(aux->prox->dado.value != word.value) 
+                {
+                    tmp->prox = aux->prox;
+                    aux->prox = tmp;
+                    if(tmp->prox == nullptr)
+                        lista->cauda = tmp;
+                } else if(aux->prox->dado.value == word.value && aux->prox->dado.initial == word.palavra.at(0) && aux->prox->dado.palavra == word.palavra)
+                {
+                    aux->prox->dado.qtd++;
+                }
+            }
         }
     } 
     else {        // Caso a lista estiver vazia adionar a palavra de uma vez na lista
