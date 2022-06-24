@@ -1,4 +1,4 @@
-#include "lista.hpp"
+#include "functions.hpp"
 
 int main(){
 	List<Documento> LD;

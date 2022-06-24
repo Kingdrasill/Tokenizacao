@@ -1,4 +1,4 @@
-#include "lista.hpp"
+#include "functions.hpp"
 
 void preencheLista(List<Documento> *lDoc){
 	List<Palavras> lPal;
