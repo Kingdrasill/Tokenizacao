@@ -101,4 +101,10 @@
 
 # Participantes
 
-
+- Bárbara Braga Gualberto Correa
+- Gabriel Couto Assis
+- Gabriel Teixeira Júlio
+- Kemily Rezende Silva
+- Marcus Vinícius Nogueira Santos
+- Pablo Sousa da Silva
+- Thaissa Vitória Guimarães Daldegan de Sousa
