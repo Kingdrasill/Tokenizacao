@@ -22,12 +22,18 @@
 
 # Estrutura do Problema
 
-- <h2>Método de Remoção das Stop Words</h2>
+- <h2>Estrutura utilizada</h2>
 
-- <h2>Método de Busca</h2>
+- <h2>Método para extrair palavras dos documentos</h2>
+
+- <h2>Método de remoção das stop words</h2>
+
+- <h2>Método de busca</h2>
 
 - <h2>TF/IDF</h2>
 
 # Resultados
 
 # Conclusão
+
+<h2>Participantes</h2>
