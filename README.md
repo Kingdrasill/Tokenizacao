@@ -49,7 +49,7 @@
 	</p>
 
 	<p align="center">
-		<img src="imagens/memorias.png"/> 
+		<img src="imagens/memoria.png"/> 
 	</p> 
 
 	<p align="justify">
