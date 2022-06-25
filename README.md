@@ -29,7 +29,7 @@
 	</p>
 
 	<p align="center">
-		<img src="imgagens/lista.png"/> 
+		<img src="imagens/lista.png"/> 
 	</p>
 
 	<p align="justify">
@@ -49,7 +49,7 @@
 	</p>
 
 	<p align="center">
-		<img src="imgs/memoria.png"/> 
+		<img src="imagens/memorias.png"/> 
 	</p> 
 
 	<p align="justify">
@@ -69,7 +69,7 @@
 	>Quando a lista é criada (i.e., execução do FLVazia), os ponteiros estão apontando para a "cabeça da lista". Essa posição de memória não deve ser utilizada para armazenar dados. Então, para cada novo bloco a ser armazenado deve-se reservar uma nova área na memória. Esse procedimento é realizado pelo malloc e o local a ser guardado esse novo endereço é no ponteiro que representa o próximo (i.e., prox). Nesse contexto, os novos endereços que são criados sempre são recebidos pelo ponteiro prox do último bloco existente, ou seja, o que está referenciado pelo ponteiro de último. Veja um pequeno exemplo desse processo a partir da figura a seguir. 
 
 	<p align="center">
-		<img src="imgs/inserir.png"/> 
+		<img src="imagens/inserir.png"/> 
 	</p> 
 
 	<p align="justify">
@@ -77,7 +77,7 @@
 	</p>
 
 	<p align="center">
-		<img src="imgs/remover.png"/> 
+		<img src="imagens/remover.png"/> 
 	</p> 
 
 - <h2>Método para extrair palavras dos documentos</h2>
