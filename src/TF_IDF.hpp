@@ -1,7 +1,7 @@
 #ifndef TF_IDF_HPP
 #define IF_IDF_HPP
 
-#include "lista.hpp"
+#include "functions.hpp"
 #include <cmath>
 
 void TF(List<Documento>*list);  ///Adiciona tf a variavel tfidf
