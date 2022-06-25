@@ -1,5 +1,12 @@
 # Tokenização e Ranqueamento de Documentos
 
+<div style="display: inline-block;">
+<img align="center" height="20px" width="60px" src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"/> 
+<img align="center" height="20px" width="80px" src="https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg"/> 
+<a href="https://github.com/mpiress/midpy/issues">
+</a> 
+</div>
+
 - <h2>Problema</h2>
   <p align="justify"> Como é de conhecimento de todos, as estruturas do tipo lista, pilha e filha formam a base
   da estrutura de dados e são amplamente utilizadas como parte de muitos problemas atuais.
@@ -92,4 +99,6 @@
 
 # Conclusão
 
-<h2>Participantes</h2>
+# Participantes
+
+
