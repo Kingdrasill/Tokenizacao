@@ -79,3 +79,30 @@ void printLPDocument(List<Documento> *lista) {
         aux=aux->prox;
     }
 }
+
+
+/// Verifica em quantos documentos uma palavra aparece
+int calculaAparicaoPalavra(List<Documento> *lista,std::string palavra)
+{
+    Block<Documento> *aux;
+    int soma=0;
+
+    aux=lista->cabeca;
+    while (aux->prox!=nullptr)
+    {
+        if(buscaLPTamanho(&aux->prox->dado.documento,palavra)==true)
+        {
+            soma++;
+        }
+
+         aux=aux->prox;    
+    }
+
+    return soma;
+}
+
+
+bool buscaPDocument(Block<Documento>*doc,std::string palavra)
+{
+    return buscaLPTamanho(&doc->dado.documento,palavra);
+}

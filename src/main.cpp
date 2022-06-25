@@ -1,4 +1,4 @@
-#include "functions.hpp"
+#include "TF_IDF.hpp"
 
 int main(){
 	List<Documento> LD;
@@ -11,6 +11,8 @@ int main(){
 	preencheListaStpW(&StpW);
 	removeStopWords(&LD, &StpW);
 	printLPDocument(&LD);
+	TF(&LD);
+	///printLPTamanho(&StpW);
 
 	return 0;
 }

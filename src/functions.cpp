@@ -27,13 +27,13 @@ void preencheLista(List<Documento> *lDoc){
             {
                 std::stringstream X(linha);
                 while (getline(X, palavras, ' ')){
+                    while(palavras.back() == ',' || palavras.back() =='.' || palavras.back() =='!' || palavras.back() =='?' || palavras.back() ==';' || palavras.back() ==':' || palavras.back() ==')' || palavras.back() =='-' || palavras.back() =='\'' || palavras.back() =='\"' || palavras.back() =='/')
+                        palavras.pop_back();
+                    while(palavras.front()=='('||palavras.front()=='-'||palavras.front()=='\''||palavras.front()=='\"')
+                        palavras.erase(palavras.begin());
+                    std::transform(palavras.begin(), palavras.end(), palavras.begin(),[](unsigned char c){ return std::tolower(c); });
                     if (palavras.size()>0)
                     {
-                        while(palavras.back() == ',' || palavras.back() =='.' || palavras.back() =='!' || palavras.back() =='?' || palavras.back() ==';' || palavras.back() ==':' || palavras.back() ==')' || palavras.back() =='-' || palavras.back() =='\'' || palavras.back() =='\"' || palavras.back() =='/')
-                            palavras.pop_back();
-                        while(palavras.front()=='('||palavras.front()=='-'||palavras.front()=='\''||palavras.front()=='\"')
-                            palavras.erase(palavras.begin());
-                        std::transform(palavras.begin(), palavras.end(), palavras.begin(),[](unsigned char c){ return std::tolower(c); });
                         insertLPTamanho(&lPal,palavras);
                     }
                 }

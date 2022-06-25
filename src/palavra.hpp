@@ -11,11 +11,14 @@ struct Word{
     short int qtd;      // Quantidade de vezes que a palavra apareceu
     short int value;    // O valor ASCii da palavra
     char initial;       // A inicial da palavra
+    float tfidf; ////TFIDF da palavra
 };
 
 void insertListaPalavra(List<Word> *lista, std::string palavra);   // Insere uma palavra em uma lista de palavras
 int removeListaPalavra(List<Word> *lista, std::string palavra);   // Remove uma palavra de uma lista de palavras
 void printListaPalavra(List<Word> *lista);                    // Printa uma lista de palavras
 short int calcularValorPalavra(std::string palavra);             // Calcula o valor ASCii de uma palavra
+bool pesquisaPalavra(List<Word> *lista, std::string palavra);
+
 
 #endif
