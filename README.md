@@ -32,7 +32,7 @@
 
 - <h2>TF/IDF</h2>
 
-# Resultado
+# Resultados
 
 # Conclusão
 
