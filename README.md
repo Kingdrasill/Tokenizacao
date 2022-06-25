@@ -101,7 +101,7 @@
 
 # Participantes
 
-- Bárbara Braga Gualberto Correa
+- Bárbara Braga Gualberto Correa https://img.shields.io/github/followers/pablossousa?style=social
 - Gabriel Couto Assis
 - Gabriel Teixeira Júlio
 - Kemily Rezende Silva
