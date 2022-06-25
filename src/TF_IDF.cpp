@@ -1,6 +1,6 @@
 #include "TF_IDF.hpp"
 
-float TF(List<Documento>*list)
+void TF(List<Documento>*list)
 {
     Block<Documento> *aux;
     Block<Palavras> *percorre;
@@ -15,16 +15,17 @@ float TF(List<Documento>*list)
             palavras=percorre->prox->dado.listPal.cabeca;
             while(palavras->prox!=nullptr)
             {
-                palavras->prox->dado.tf=(palavras->prox->dado.qtd/aux->prox->dado.qtd);
+                palavras->prox->dado.tfidf=((palavras->prox->dado.qtd)/(static_cast<float> (aux->prox->dado.qtd)));
                 palavras=palavras->prox;
             }
             percorre=percorre->prox;
         }
         aux=aux->prox;
     }
+    IDF(list);
 }
 
-float IDF(List<Documento>*list)
+void IDF(List<Documento>*list)
 {
     Block<Documento> *aux;
     Block<Palavras> *percorre;
@@ -39,36 +40,14 @@ float IDF(List<Documento>*list)
             palavras=percorre->prox->dado.listPal.cabeca;
             while(palavras->prox!=nullptr)
             {
-                palavras->prox->dado.idf=log10(aux->dado.qtd/palavras->dado.qtdapa);
+                if(buscaPDocument(aux->prox,palavras->prox->dado.palavra))
+                {
+                   palavras->prox->dado.tfidf=1*log10(aux->dado.qtd/calculaAparicaoPalavra(list,palavras->prox->dado.palavra)); 
+                }
                 palavras=palavras->prox;
             }
             percorre=percorre->prox;
         }
         aux=aux->prox;
     }
-}
-
-float TFIDF(List<Documento>*list)
-{
-    Block<Documento> *aux;
-    Block<Palavras> *percorre;
-    Block<Word> *palavras;
-
-    aux=list->cabeca;
-    while (aux->prox!=nullptr)
-    {
-        percorre=aux->prox->dado.documento.cabeca;
-        while(percorre->prox!=nullptr)
-        {
-            palavras=percorre->prox->dado.listPal.cabeca;
-            while(palavras->prox!=nullptr)
-            {
-                palavras->prox->dado.tfidf=(palavras->prox->dado.tf*palavras->prox->dado.idf);
-                palavras=palavras->prox;
-            }
-            percorre=percorre->prox;
-        }
-        aux=aux->prox;
-    }
-
 }

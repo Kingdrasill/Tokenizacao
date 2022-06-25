@@ -77,7 +77,7 @@ void printListaPalavra(List<Word> *lista) {
     aux = lista->cabeca;
     while (aux->prox != nullptr)
     {
-        printf("%s\t %c\t%d\t%d\n",aux->prox->dado.palavra.c_str(), aux->prox->dado.initial, aux->prox->dado.value, aux->prox->dado.qtd);
+        printf("%s\t %c\t%d\t%d\t%d\n",aux->prox->dado.palavra.c_str(), aux->prox->dado.initial, aux->prox->dado.value, aux->prox->dado.qtd,aux->prox->dado.tfidf);
         aux=aux->prox;
     }
     printf("\n");
@@ -96,7 +96,7 @@ short int calcularValorPalavra(std::string palavra) {
 
 bool pesquisaPalavra(List<Word> *lista, std::string palavra)
 {
-    Block<Word> *aux, *freeBloco;
+    Block<Word> *aux;
     short int valor = calcularValorPalavra(palavra);
     
     aux = lista->cabeca;

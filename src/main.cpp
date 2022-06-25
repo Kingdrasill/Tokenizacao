@@ -1,4 +1,4 @@
-#include "lista.hpp"
+#include "TF_IDF.hpp"
 
 int main(){
 	List<Documento> LD;
@@ -7,8 +7,9 @@ int main(){
 	FLVazia(&StpW);
 	preencheLista(&LD);
 	preencheListaStpW(&StpW);
+	TF(&LD);
 	printLPDocument(&LD);
-	printLPTamanho(&StpW);
+	///printLPTamanho(&StpW);
 
 	return 0;
 }
