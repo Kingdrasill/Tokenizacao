@@ -5,8 +5,8 @@
 #include <cmath>
 
 float TF(List<Documento>*list);
-float IDF();
-float TFIDF();
+float IDF(List<Documento>*list);
+float TFIDF(List<Documento>*list);
 
 
 #endif

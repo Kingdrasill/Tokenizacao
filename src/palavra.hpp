@@ -13,6 +13,8 @@ struct Word{
     char initial;       // A inicial da palavra
     float idf;   /// IDF da palavra
     float tf;   ////TF da palavra
+    float tfidf; ////TFIDF da palavra
+    short int qtdapa;  ///Em quantos documentos uma palavra aparece
 };
 
 void insertListaPalavra(List<Word> *lista, std::string palavra);   // Insere uma palavra em uma lista de palavras

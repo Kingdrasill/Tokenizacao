@@ -14,5 +14,5 @@ void createDocument(List<Documento> *lista, std::string nome);                  
 void insertLPDocument(List<Documento> *lista, std::string nome, List<Palavras> palavras);    // Insere palavras em um documento
 void removeDocument(List<Documento> *lista, std::string nome);                         // Remove um documento
 void printLPDocument(List<Documento> *lista);                                     // Printa uma lista de documentos
-
+int calculaAparicaoPalavra(std::string palavra);      /// Verifica em quantos documentos uma palavra aparece
 #endif
