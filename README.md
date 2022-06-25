@@ -1,7 +1,7 @@
 # Tokenização e Ranqueamento de Documentos
 
 - <h2>Problema</h2>
-  Como é de conhecimento de todos, as estruturas do tipo lista, pilha e filha formam a base
+  <p align="justify"> Como é de conhecimento de todos, as estruturas do tipo lista, pilha e filha formam a base
   da estrutura de dados e são amplamente utilizadas como parte de muitos problemas atuais.
   Sua função é adaptar tais estruturas para um problema de contagem de palavras em um texto.
   Como entrada, a aplicação receberá um conjunto de documentos D = {<i>d<sub>1</sub>, d<sub>2</sub>, . . . , d<sub>n</sub></i>}, os
@@ -16,7 +16,7 @@
     
     2- Aplicação do TF/IDF nas palavras encontradas seguindo sua base teórica.
     
-    3- Utilizando uma entrada com algumas palavras, mostrar em ordem de importância os documentos avaliados.
+    3- Utilizando uma entrada com algumas palavras, mostrar em ordem de importância os documentos avaliados. </p>
 
 # Custo Computacional
 
