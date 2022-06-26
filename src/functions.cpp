@@ -4,7 +4,7 @@ void preencheLista(List<Documento> *lDoc){
     Block<Documento> *aux;
     List<Palavras> lPal;
     std::fstream myFile;
-    int quantidadeArquivos;
+    int quantidadeArquivos, valor;
     std::string nomeArquivo,caminho,palavras,linha;
 	printf("Quantos arquivos deseja inserir?\n");
     scanf("%d",&quantidadeArquivos);
@@ -35,6 +35,9 @@ void preencheLista(List<Documento> *lDoc){
                     palavras.pop_back();
                 while(palavras.front()=='('||palavras.front()=='-'||palavras.front()=='\''||palavras.front()=='\"')
                     palavras.erase(palavras.begin());
+                valor=palavras[1];
+                if(palavras.front()==-61 && valor>=-128 && valor<=-99)
+                    palavras[1]=palavras[1]+32;
                 std::transform(palavras.begin(), palavras.end(), palavras.begin(),[](unsigned char c){ return std::tolower(c); });
                 if (palavras.size()>0)
                     insertLPTamanho(&lPal,palavras);

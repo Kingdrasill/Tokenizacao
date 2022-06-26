@@ -18,7 +18,7 @@ void removeWordFromDocuments(List<Documento> *lista, std::string palavra);      
 void printLPDocument(List<Documento> *lista);                                                // Printa uma lista de documentos
 void removeDocument(List<Documento> *lista, std::string nome);                         // Remove um documento
 void printLPDocument(List<Documento> *lista);                                     // Printa uma lista de documentos
-int calculaAparicaoPalavra(List<Documento> *lista,std::string palavra);     /// Verifica em quantos documentos uma palavra aparece
+float calculaAparicaoPalavra(List<Documento> *lista,std::string palavra);     /// Verifica em quantos documentos uma palavra aparece
 bool buscaPDocument(Block<Documento>*doc, std::string palavra);
 void printDocOrd(List<Documento> *lista);                                                    //Printa documentos de uma lista ja ordenada
 

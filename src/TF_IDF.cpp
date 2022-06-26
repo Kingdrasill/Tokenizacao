@@ -42,7 +42,7 @@ void IDF(List<Documento>*list)
             {
                 if(buscaPDocument(aux->prox,palavras->prox->dado.palavra))
                 {
-                   palavras->prox->dado.tfidf=palavras->prox->dado.tfidf*log10(list->qtd/calculaAparicaoPalavra(list,palavras->prox->dado.palavra)); 
+                    palavras->prox->dado.tfidf=palavras->prox->dado.tfidf*log10(list->qtd/calculaAparicaoPalavra(list,palavras->prox->dado.palavra)); 
                 }
                 palavras=palavras->prox;
             }
