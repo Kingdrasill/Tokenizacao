@@ -19,6 +19,6 @@ int removeListaPalavra(List<Word> *lista, std::string palavra);   // Remove uma 
 void printListaPalavra(List<Word> *lista);                    // Printa uma lista de palavras
 short int calcularValorPalavra(std::string palavra);             // Calcula o valor ASCii de uma palavra
 bool pesquisaPalavra(List<Word> *lista, std::string palavra);
-
+float pesquisaTFIDF(List<Word> *lista, std::string palavra);
 
 #endif

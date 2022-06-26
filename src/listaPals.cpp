@@ -64,10 +64,10 @@ int removeLPTamanho(List<Palavras> *lista, std::string palavra) {
                 aux->prox = nullptr;
                 lista->cauda = aux;
             }
+            return removed;
         }
         aux = aux->prox;
     }
-    lista->qtd = lista->qtd - removed;
 
     return removed;
 }
@@ -96,4 +96,18 @@ bool buscaLPTamanho(List<Palavras> *lista, std::string palavra) {
         aux = aux->prox;
     }
     return false;
+}
+
+float buscaTFIDF(List<Palavras> *lista, std::string palavra) {
+    Block<Palavras>* aux;
+    int tam = static_cast<int> (palavra.size());
+
+    aux = lista->cabeca;
+    while(aux->prox != nullptr) {
+        if(aux->prox->dado.tam == tam) 
+            return pesquisaTFIDF(&aux->prox->dado.listPal, palavra);
+
+        aux = aux->prox;
+    }
+    return 0;
 }

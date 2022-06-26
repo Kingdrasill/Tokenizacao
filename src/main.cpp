@@ -3,15 +3,22 @@
 int main(){
 	List<Documento> LD;
 	List<Palavras> StpW;
-	std::string palavra;
-	std::string nome;
+	char resposta='S';
 	FLVazia(&LD);
 	FLVazia(&StpW);
 	preencheLista(&LD);
 	preencheListaStpW(&StpW);
 	removeStopWords(&LD, &StpW);
 	TF(&LD);
-	printLPDocument(&LD);
+	while (resposta=='S')
+	{
+		ranking(&LD);
+		printDocOrd(&LD);
+		printf("Deseja buscar outra frase? (S/N)\n");
+		std::cin.ignore(10000, '\n');
+		std::cin>>resposta;
+		resposta=std::toupper(resposta);
+	}
 
 	return 0;
 }

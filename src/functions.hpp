@@ -10,5 +10,8 @@
 void preencheLista(List<Documento> *l);
 void preencheListaStpW(List<Palavras> *lPal);
 void removeStopWords(List<Documento> *docs, List<Palavras> *stopWords);
+void ranking(List<Documento> *lDoc);
+void BubbleSort(List<Documento> *Doc);
+void swap(Block<Documento> *auxj,Block<Documento> *auxi);
 
 #endif
