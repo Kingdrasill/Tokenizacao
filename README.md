@@ -119,6 +119,18 @@
 	- <h4>Limitações de tamanho da amostra</h4>
 			O banco de dados do Google para TF-IDF consiste em todas as páginas da Internet que ele indexou. Nenhuma outra ferramenta de SEO tem acesso a 				esse banco de dados. Como resultado, o melhor que eles podem fazer é usar estimativas aproximadas, com precisão incerta.
 			Na verdade, as ferramentas TF-IDF frequentemente examinam apenas as 10 ou 20 principais páginas dos resultados de pesquisa do Google.
+			
+	<h3>Implementação do TF-IDF no código</h3>
+	
+	- <h4>TF</h2>
+		<p align="center">
+			<img src="imagens/TF.png"/> 
+		</p> 
+		
+	- <h4>IDF</h2>
+		<p align="center">
+			<img src="imagens/IDF.png"/> 
+		</p> 
 	
 
 # Resultados
