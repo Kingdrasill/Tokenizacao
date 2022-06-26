@@ -98,9 +98,9 @@
 	
 	TF-IDF significa <i>Term Frequency – Inverse Document Frequency</i>. Essa expressão pode ser traduzida para o português como “Frequência do Termo – Frequência Inversa dos Documentos”.
 	
-	TF se refere à “frequência do termo”. Essa parte do cálculo responde à pergunta: com que frequência o termo aparece nesse documento? Quanto maior for a frequência no documento, maior será a importância do termo.
+	TF se refere à “frequência do termo”. Essa parte do cálculo responde à pergunta: com que frequência o termo aparece nesse documento? <b>Quanto maior for a frequência no documento, maior será a importância do termo.</b>
 
-	Já o IDF significa “frequência inversa dos documentos”. Nessa parte, a ferramenta responde: com que frequência o termo aparece em todos os documentos da coleção? Quanto maior for a frequência nos documentos, menor será a importância do termo.
+	Já o IDF significa “frequência inversa dos documentos”. Nessa parte, a ferramenta responde: com que frequência o termo aparece em todos os documentos da coleção? <b>Quanto maior for a frequência nos documentos, menor será a importância do termo.</b>
 
 	O cálculo do IDF considera que termos que se repetem frequentemente nos textos — como artigos e conjunções (a, o, e, mas, que etc.) — não têm relevância para os documentos e, no caso do Google, para a indexação e o rankeamento.
 
@@ -109,6 +109,18 @@
 	<p align="center">
 		<img src="imagens/esquema.png"/> 
 	</p> 
+	
+	<h3>Limitações do TF-IDF</h3>
+
+	- <h4>Palavras-chave e intenção</h4>
+			Ao focar apenas nas primeiras páginas nos resultados de pesquisa, as ferramentas TF-IDF SEO (<i>Search Engine Optimization</i>) correm o risco 				de analisar páginas que não são realmente seus concorrentes. Eles também podem segmentar sites que operam em nichos diferentes do seu próprio site.
+			Além disso, o conteúdo desses sites pode ser muito longo ou superficial demais para fornecer uma comparação útil com seu próprio conteúdo.
+			
+	- <h4>Limitações de tamanho da amostra</h4>
+			fgifgmdifog gfdgdf
+			
+	- <h4>Concentração no preenchimento de palavras-chave</h4>
+			fgifgmdifog gfdgdf
 	
 
 # Resultados
