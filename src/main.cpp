@@ -10,9 +10,8 @@ int main(){
 	preencheLista(&LD);
 	preencheListaStpW(&StpW);
 	removeStopWords(&LD, &StpW);
-	printLPDocument(&LD);
 	TF(&LD);
-	///printLPTamanho(&StpW);
+	printLPDocument(&LD);
 
 	return 0;
 }

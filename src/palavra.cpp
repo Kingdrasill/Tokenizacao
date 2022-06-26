@@ -5,6 +5,7 @@ void insertListaPalavra(List<Word> *lista, std::string palavra) {
     Word word;
     word.palavra = palavra;
     word.qtd = 1;
+    word.tfidf=-1;
     word.initial = palavra.at(0);
     word.value = calcularValorPalavra(palavra);
 
@@ -108,7 +109,7 @@ void printListaPalavra(List<Word> *lista) {
     aux = lista->cabeca;
     while (aux->prox != nullptr)
     {
-        printf("%s\t %c\t%d\t%d\t%.2f\n",aux->prox->dado.palavra.c_str(), aux->prox->dado.initial, aux->prox->dado.value, aux->prox->dado.qtd,aux->prox->dado.tfidf);
+        printf("%s\t %c\t%d\t%d\t%.10f\n",aux->prox->dado.palavra.c_str(), aux->prox->dado.initial, aux->prox->dado.value, aux->prox->dado.qtd,aux->prox->dado.tfidf);
         aux=aux->prox;
     }
     printf("\n");
