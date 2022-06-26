@@ -126,11 +126,13 @@
 		<p align="center">
 			<img src="imagens/TF.png"/> 
 		</p> 
+		Escrever aqui
 		
 	- <h4>IDF</h2>
 		<p align="center">
 			<img src="imagens/IDF.png"/> 
 		</p> 
+		Escrever aqui
 	
 
 # Resultados
