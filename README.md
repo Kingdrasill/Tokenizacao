@@ -88,6 +88,11 @@
 	<p align="center">
 		<img src="imagens/remover.png"/> 
 	</p> 
+	
+	Nossa estrutura é um pouco diferente da estrutura convencional de listas dinâmicas, pois consiste em várias Listas Dinâmicas dentro de si mesmas. A partir do seguinte trecho de código é possível entender a organização:
+	<p align="center">
+		<img src="imagens/palavraHPP.png"/> 
+	</p>
 
 - <h2>Método para extrair palavras dos documentos</h2>
 
