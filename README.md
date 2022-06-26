@@ -93,6 +93,8 @@
 	<p align="center">
 		<img src="imagens/palavraHPP.png"/> 
 	</p>
+	
+	A <i>struct</i> "Word" armazena alguns dados sobre uma palavra específica, que são: a própria palavra numa <i>string</i>, a quantidades de vezes que a palavra apareceu num <i>int</i>, o valor ASCII da palavra (resultado da soma do valor ASCII de cada caractere) num <i>int</i>, a inicial da palavra num <i>char</i> e o resultado do cálculo de TF/IDF da palavra num <i>float</i>.
 
 - <h2>Método para extrair palavras dos documentos</h2>
 
