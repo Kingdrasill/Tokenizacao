@@ -106,6 +106,10 @@
 
 	Então, quando o fator IDF é incorporado, o cálculo diminui o peso dos termos que ocorrem com muita frequência no conjunto de documentos e aumenta o peso dos termos que ocorrem raramente. Este esquema ajuda a entender melhor:
 	
+	<p align="center">
+		<img src="imagens/esquema.png"/> 
+	</p> 
+	
 
 # Resultados
 
