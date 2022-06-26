@@ -1,44 +1,46 @@
 #include "functions.hpp"
 
 void preencheLista(List<Documento> *lDoc){
-	List<Palavras> lPal;
+    Block<Documento> *aux;
+    List<Palavras> lPal;
     std::fstream myFile;
     int quantidadeArquivos;
     std::string nomeArquivo,caminho,palavras,linha;
 	printf("Quantos arquivos deseja inserir?\n");
-    scanf("%d\n",&quantidadeArquivos);
+    scanf("%d",&quantidadeArquivos);
 	printf("Escreva o nome dos arquivos:\n");
     for (int i = 0; i < quantidadeArquivos; i++)
     {
-        getline(std::cin, nomeArquivo);
-	    createDocument(lDoc, nomeArquivo);
+        caminho="arquivos/";
+        std::cin>>nomeArquivo;
+        myFile.open(caminho.append(nomeArquivo));
+        if (!myFile)
+            printf("Arquivo não encontrado\n");
+        else
+	        createDocument(lDoc, nomeArquivo);
+        myFile.close();
     }
-    Block<Documento> *aux;
     aux=lDoc->cabeca;
     while (aux->prox!=nullptr)
     {
-	    FLVazia(&lPal);
         caminho="arquivos/";
+	    FLVazia(&lPal);
         myFile.open(caminho.append(aux->prox->dado.nome));
-        if (!myFile)
-            printf("Arquivo não encontrado\n");
-        else{
-            while (getline(myFile,linha,'\n'))
-            {
-                linha.append(" ");
-                std::stringstream X(linha);
-                while (getline(X, palavras, ' ')){
-                    while(palavras.back() == ',' || palavras.back() =='.' || palavras.back() =='!' || palavras.back() =='?' || palavras.back() ==';' || palavras.back() ==':' || palavras.back() ==')' || palavras.back() =='-' || palavras.back() =='\'' || palavras.back() =='\"' || palavras.back() =='/')
-                        palavras.pop_back();
-                    while(palavras.front()=='('||palavras.front()=='-'||palavras.front()=='\''||palavras.front()=='\"')
-                        palavras.erase(palavras.begin());
-                    std::transform(palavras.begin(), palavras.end(), palavras.begin(),[](unsigned char c){ return std::tolower(c); });
-                    if (palavras.size()>0)
-                        insertLPTamanho(&lPal,palavras);
-                }
+        while (getline(myFile,linha,'\n'))
+        {
+            linha.append(" ");
+            std::stringstream X(linha);
+            while (getline(X, palavras, ' ')){
+                while(palavras.back() == ',' || palavras.back() =='.' || palavras.back() =='!' || palavras.back() =='?' || palavras.back() ==';' || palavras.back() ==':' || palavras.back() ==')' || palavras.back() =='-' || palavras.back() =='\'' || palavras.back() =='\"' || palavras.back() =='/')
+                    palavras.pop_back();
+                while(palavras.front()=='('||palavras.front()=='-'||palavras.front()=='\''||palavras.front()=='\"')
+                    palavras.erase(palavras.begin());
+                std::transform(palavras.begin(), palavras.end(), palavras.begin(),[](unsigned char c){ return std::tolower(c); });
+                if (palavras.size()>0)
+                    insertLPTamanho(&lPal,palavras);
             }
-            insertLPDocument(lDoc,aux->prox->dado.nome,lPal);
         }
+        insertLPDocument(lDoc,aux->prox->dado.nome,lPal);
         aux=aux->prox;
         myFile.close();
     }
@@ -50,7 +52,7 @@ void preencheListaStpW(List<Palavras> *lPal){
     caminho="arquivos/stopwords.txt";
     myFile.open(caminho);
     if (!myFile)
-        printf("Arquivo não encontrado\n");
+        printf("Arquivo stopwords não encontrado\n");
     else{
         while (getline(myFile,palavras,'\n')){
             if (palavras.back()==' ')
@@ -81,8 +83,8 @@ void ranking(List<Documento> *Doc){
     Block<Documento> *docRunner;
     std::string linha,palavra;
 
-    printf("Escreva a Frase que deseja escolher:\n");
-    getline(std::cin, linha);
+    printf("Escreva a Frase que deseja procurar:\n");
+    std::cin>>linha;
 
     linha.append(" ");
 
@@ -91,6 +93,7 @@ void ranking(List<Documento> *Doc){
         docRunner->prox->dado.value = 0;
         std::stringstream X(linha);
         while(getline(X, palavra, ' ')){
+            std::transform(palavra.begin(), palavra.end(), palavra.begin(),[](unsigned char c){ return std::tolower(c); });
             docRunner->prox->dado.value = docRunner->prox->dado.value + buscaTFIDF(&docRunner->prox->dado.documento, palavra);
         }
         docRunner = docRunner->prox;

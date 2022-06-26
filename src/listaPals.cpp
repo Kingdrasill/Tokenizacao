@@ -64,10 +64,10 @@ int removeLPTamanho(List<Palavras> *lista, std::string palavra) {
                 aux->prox = nullptr;
                 lista->cauda = aux;
             }
+            return removed;
         }
         aux = aux->prox;
     }
-    lista->qtd = lista->qtd - removed;
 
     return removed;
 }

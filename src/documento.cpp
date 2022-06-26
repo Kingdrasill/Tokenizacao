@@ -64,6 +64,7 @@ void removeWordFromDocuments(List<Documento> *lista, std::string palavra) {
     while(aux->prox != NULL) {
         aux = aux->prox;
         int x = removeLPTamanho(&aux->dado.documento, palavra);
+        aux->dado.documento.qtd =aux->dado.documento.qtd-x;
         aux->dado.qtd = aux->dado.qtd - x;
     }
 }
@@ -105,4 +106,17 @@ int calculaAparicaoPalavra(List<Documento> *lista,std::string palavra)
 bool buscaPDocument(Block<Documento>*doc,std::string palavra)
 {
     return buscaLPTamanho(&doc->dado.documento,palavra);
+}
+
+// Função para printar uma lista de documentos por relevância
+void printDocOrd(List<Documento> *lista) {
+    Block<Documento>* aux;
+    aux = lista->cabeca;
+    short int cont=1;
+    while (aux->prox != nullptr)
+    {
+        printf("%dº Documento: %s\n", cont,aux->prox->dado.nome.c_str());
+        aux=aux->prox;
+        cont++;
+    }
 }

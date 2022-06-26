@@ -4,6 +4,7 @@
 #include "list.hpp"
 #include <iostream>
 #include <cstring>
+#include <locale>
 
 // Estrutura que guarda os dados de uma palavra
 struct Word{
