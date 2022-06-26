@@ -103,11 +103,11 @@
 		<img src="imagens/listPalsHPP.png"/> 
 	</p>
 	
+	Além disso, "documento.hpp" possui uma <i>struct</i> chamada "Documento" com uma lista de listas de palavras dividido pelo tamanho delas. Cada lista armazena palavras de um certo tamanho. Por exemplo: a lista 1 armazena palavras de tamanho N, a lista 2 armazena palavras de tamanho N+1. Ademais, possui uma variável do tipo <i>string</i> para guardar o nome do documento, a quantidade de palavras no documento em um <i>int</i> e um <i>float</i> para guardar dados do TF/IDF futuramente.
+	
 	<p align="center">
 		<img src="imagens/documentoHPP.png"/> 
 	</p>
-
-- <h2>Método para extrair palavras dos documentos</h2>
 
 - <h2>Método de remoção das stop words</h2>
 
