@@ -103,7 +103,7 @@
 		<img src="imagens/listPalsHPP.png"/> 
 	</p>
 	
-	Em "documento.hpp" é um cabeçalho que possui uma lista de listas. Cada lista armazena palavras de um certo tamanho. Por exemplo: a lista 1 armazena palavras de tamanho N, a lista 2 armazena palavras de tamanho N+1. 
+	Além disso, "documento.hpp", possui uma lista de listas de palavras dividido pelo tamanho delas. Cada lista armazena palavras de um certo tamanho. Por exemplo: a lista 1 armazena palavras de tamanho N, a lista 2 armazena palavras de tamanho N+1. 
 	
 	<p align="center">
 		<img src="imagens/documentoHPP.png"/> 
