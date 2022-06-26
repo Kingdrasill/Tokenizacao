@@ -71,10 +71,10 @@ void removeStopWords(List<Documento> *docs, List<Palavras> *stopWords) {
     Block<Palavras> *SWRunner;
     Block<Word> *WordRunner;
     SWRunner = stopWords->cabeca;
-    while(SWRunner->prox != NULL) {
+    while(SWRunner->prox != nullptr) {
         SWRunner = SWRunner->prox;
         WordRunner = SWRunner->dado.listPal.cabeca;
-        while(WordRunner->prox != NULL) {
+        while(WordRunner->prox != nullptr) {
             WordRunner = WordRunner->prox;
             removeWordFromDocuments(docs, WordRunner->dado.palavra);
         }
@@ -92,7 +92,7 @@ void ranking(List<Documento> *Doc){
     linha.append(" ");
 
     docRunner = Doc -> cabeca;
-    while(docRunner->prox != NULL) {
+    while(docRunner->prox != nullptr) {
         docRunner->prox->dado.value = 0;
         std::stringstream X(linha);
         while(getline(X, palavra, ' ')){
@@ -107,9 +107,9 @@ void ranking(List<Documento> *Doc){
 void BubbleSort(List<Documento> *Doc){
     Block<Documento> *auxi,*auxj;
     auxi=Doc->cabeca->prox;
-    while(auxi->prox!=NULL){
+    while(auxi->prox!=nullptr){
         auxj=auxi->prox;
-        while(auxj!=NULL){
+        while(auxj!=nullptr){
             if (auxj->dado.value>auxi->dado.value)
                 swap(auxj,auxi);
             auxj=auxj->prox;

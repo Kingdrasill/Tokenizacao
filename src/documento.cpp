@@ -61,7 +61,7 @@ void removeWordFromDocuments(List<Documento> *lista, std::string palavra) {
     Block<Documento> *aux;
 
     aux = lista->cabeca;
-    while(aux->prox != NULL) {
+    while(aux->prox != nullptr) {
         aux = aux->prox;
         int x = removeLPTamanho(&aux->dado.documento, palavra);
         aux->dado.documento.qtd =aux->dado.documento.qtd-x;
