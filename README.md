@@ -109,8 +109,6 @@
 		<img src="imagens/documentoHPP.png"/> 
 	</p>
 
-- <h2>Método para extrair palavras dos documentos</h2>
-
 - <h2>Método de remoção das stop words</h2>
 
 - <h2>Método de busca</h2>
