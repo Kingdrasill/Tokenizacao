@@ -11,6 +11,7 @@ int main(){
 	preencheListaStpW(&StpW);
 	removeStopWords(&LD, &StpW);
 	TF(&LD);
+	ranking(&LD);
 	printLPDocument(&LD);
 
 	return 0;

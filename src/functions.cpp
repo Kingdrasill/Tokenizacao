@@ -25,6 +25,7 @@ void preencheLista(List<Documento> *lDoc){
         else{
             while (getline(myFile,linha,'\n'))
             {
+                linha.append(" ");
                 std::stringstream X(linha);
                 while (getline(X, palavras, ' ')){
                     while(palavras.back() == ',' || palavras.back() =='.' || palavras.back() =='!' || palavras.back() =='?' || palavras.back() ==';' || palavras.back() ==':' || palavras.back() ==')' || palavras.back() =='-' || palavras.back() =='\'' || palavras.back() =='\"' || palavras.back() =='/')
@@ -33,9 +34,7 @@ void preencheLista(List<Documento> *lDoc){
                         palavras.erase(palavras.begin());
                     std::transform(palavras.begin(), palavras.end(), palavras.begin(),[](unsigned char c){ return std::tolower(c); });
                     if (palavras.size()>0)
-                    {
                         insertLPTamanho(&lPal,palavras);
-                    }
                 }
             }
             insertLPDocument(lDoc,aux->prox->dado.nome,lPal);
@@ -43,8 +42,8 @@ void preencheLista(List<Documento> *lDoc){
         aux=aux->prox;
         myFile.close();
     }
-    
 }
+
 void preencheListaStpW(List<Palavras> *lPal){
     std::fstream myFile;
     std::string caminho,palavras;
@@ -60,14 +59,12 @@ void preencheListaStpW(List<Palavras> *lPal){
         }
     }
     myFile.close();
-    
 }
 
 
 void removeStopWords(List<Documento> *docs, List<Palavras> *stopWords) {
     Block<Palavras> *SWRunner;
     Block<Word> *WordRunner;
-
     SWRunner = stopWords->cabeca;
     while(SWRunner->prox != NULL) {
         SWRunner = SWRunner->prox;
@@ -77,28 +74,47 @@ void removeStopWords(List<Documento> *docs, List<Palavras> *stopWords) {
             removeWordFromDocuments(docs, WordRunner->dado.palavra);
         }
     }
-
     FLVazia(stopWords);
 }
 
-void escolheFrase(List<Documento> *Doc){
+void ranking(List<Documento> *Doc){
     Block<Documento> *docRunner;
     std::string linha,palavra;
 
-    printf("Escreva a Frase que deseja escolher");
+    printf("Escreva a Frase que deseja escolher:\n");
     getline(std::cin, linha);
 
     linha.append(" ");
-    std::stringstream X(linha);
 
     docRunner = Doc -> cabeca;
     while(docRunner->prox != NULL) {
         docRunner->prox->dado.value = 0;
+        std::stringstream X(linha);
         while(getline(X, palavra, ' ')){
             docRunner->prox->dado.value = docRunner->prox->dado.value + buscaTFIDF(&docRunner->prox->dado.documento, palavra);
         }
         docRunner = docRunner->prox;
     }
-    
-   
+    BubbleSort(Doc);
+}
+
+void BubbleSort(List<Documento> *Doc){
+    Block<Documento> *auxi,*auxj;
+    auxi=Doc->cabeca->prox;
+    while(auxi->prox!=NULL){
+        auxj=auxi->prox;
+        while(auxj!=NULL){
+            if (auxj->dado.value>auxi->dado.value)
+                swap(auxj,auxi);
+            auxj=auxj->prox;
+        }					
+        auxi=auxi->prox;
+    }
+}
+
+void swap(Block<Documento> *a,Block<Documento> *b){
+	Documento aux;
+    aux=a->dado;
+    a->dado=b->dado;
+    b->dado=aux;
 }

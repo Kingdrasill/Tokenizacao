@@ -105,7 +105,7 @@ float buscaTFIDF(List<Palavras> *lista, std::string palavra) {
     aux = lista->cabeca;
     while(aux->prox != nullptr) {
         if(aux->prox->dado.tam == tam) 
-            return pesquisaPalavra(&aux->prox->dado.listPal, palavra);
+            return pesquisaTFIDF(&aux->prox->dado.listPal, palavra);
 
         aux = aux->prox;
     }
