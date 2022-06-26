@@ -117,10 +117,8 @@
 			Além disso, o conteúdo desses sites pode ser muito longo ou superficial demais para fornecer uma comparação útil com seu próprio conteúdo.
 			
 	- <h4>Limitações de tamanho da amostra</h4>
-			fgifgmdifog gfdgdf
-			
-	- <h4>Concentração no preenchimento de palavras-chave</h4>
-			fgifgmdifog gfdgdf
+			O banco de dados do Google para TF-IDF consiste em todas as páginas da Internet que ele indexou. Nenhuma outra ferramenta de SEO tem acesso a 				esse banco de dados. Como resultado, o melhor que eles podem fazer é usar estimativas aproximadas, com precisão incerta.
+			Na verdade, as ferramentas TF-IDF frequentemente examinam apenas as 10 ou 20 principais páginas dos resultados de pesquisa do Google.
 	
 
 # Resultados
