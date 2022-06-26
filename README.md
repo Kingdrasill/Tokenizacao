@@ -103,7 +103,7 @@
 		<img src="imagens/listPalsHPP.png"/> 
 	</p>
 	
-	Além disso, "documento.hpp", possui uma lista de listas de palavras dividido pelo tamanho delas. Cada lista armazena palavras de um certo tamanho. Por exemplo: a lista 1 armazena palavras de tamanho N, a lista 2 armazena palavras de tamanho N+1. 
+	Além disso, "documento.hpp" possui uma <i>struct</i> com uma lista de listas de palavras dividido pelo tamanho delas. Cada lista armazena palavras de um certo tamanho. Por exemplo: a lista 1 armazena palavras de tamanho N, a lista 2 armazena palavras de tamanho N+1. Ademais, possui uma variável do tipo <i>string</i> para guardar a palavra em si, a quantidade de palavras no documento em um <i><int/i> e um <i>float</i> para guardar dados do TF/IDF futuramente.
 	
 	<p align="center">
 		<img src="imagens/documentoHPP.png"/> 
