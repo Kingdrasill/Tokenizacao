@@ -94,6 +94,7 @@
 - <h2>Método de busca</h2>
 
 - <h2>TF/IDF</h2>
+	TF-IDF é um cálculo estatístico que mede a importância de uma palavra em um texto quando comparado com uma coleção maior de outros documentos. Se uma palavra aparece muitas vezes em um documento, a palavra se torna mais importante. Mas quando essa palavra também aparece frequentemente em outros documentos, ela perde importância.
 
 # Resultados
 
