@@ -95,6 +95,17 @@
 
 - <h2>TF/IDF</h2>
 	TF-IDF é um cálculo estatístico que mede a importância de uma palavra em um texto quando comparado com uma coleção maior de outros documentos. Se uma palavra aparece muitas vezes em um documento, a palavra se torna mais importante. Mas quando essa palavra também aparece frequentemente em outros documentos, ela perde importância.
+	
+	TF-IDF significa <i>Term Frequency – Inverse Document Frequency</i>. Essa expressão pode ser traduzida para o português como “Frequência do Termo – Frequência Inversa dos Documentos”.
+	
+	TF se refere à “frequência do termo”. Essa parte do cálculo responde à pergunta: com que frequência o termo aparece nesse documento? Quanto maior for a frequência no documento, maior será a importância do termo.
+
+	Já o IDF significa “frequência inversa dos documentos”. Nessa parte, a ferramenta responde: com que frequência o termo aparece em todos os documentos da coleção? Quanto maior for a frequência nos documentos, menor será a importância do termo.
+
+	O cálculo do IDF considera que termos que se repetem frequentemente nos textos — como artigos e conjunções (a, o, e, mas, que etc.) — não têm relevância para os documentos e, no caso do Google, para a indexação e o rankeamento.
+
+	Então, quando o fator IDF é incorporado, o cálculo diminui o peso dos termos que ocorrem com muita frequência no conjunto de documentos e aumenta o peso dos termos que ocorrem raramente. Este esquema ajuda a entender melhor:
+	
 
 # Resultados
 
