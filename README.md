@@ -32,6 +32,8 @@
 - <h2>Estrutura utilizada</h2>
 
 	<p align="justify">
+	Primeiramente, o motivo da escolha da Lista Dinâmica se deu ao fato de que era a estrutra mais conveniente a ser utilizada para este problema. A Fila não era a estrutura ideal por possibilidar a remoção de elementos somente no início e no final. A Pilha tem o mesmo problema, além de que o último elemento que entra sempre será o primeiro a ser removido. Logo, a Lista é a que oferece a maior gama de possibilidades dentre aquelas que são úteis para o desenvolvimento da solução.
+
 	A lista dinâmica é uma variante do modelo estático [vide git](https://github.com/mpiress/linear_list). Assim, antes de apresentar as modificações existêntes nessa implementação, vejamos uma representação gráfica do modelo dinâmico em questão. Observe as nomenclaturas utilizadas na figura, essas são utilizadas na implementação fornecida, as quais podem estar definidas/parametrizadas no idioma inglês.
 	</p>
 
