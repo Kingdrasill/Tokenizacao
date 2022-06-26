@@ -32,6 +32,8 @@
 - <h2>Estrutura utilizada</h2>
 
 	<p align="justify">
+	Primeiramente, o motivo da escolha da Lista Dinâmica se deu ao fato de que era a estrutra mais conveniente a ser utilizada para este problema. A Fila não era a estrutura ideal por possibilidar a remoção de elementos somente no início e no final. A Pilha tem o mesmo problema, além de que o último elemento que entra sempre será o primeiro a ser removido. Logo, a Lista é a que oferece a maior gama de possibilidades dentre aquelas que são úteis para o desenvolvimento da solução.
+
 	A lista dinâmica é uma variante do modelo estático [vide git](https://github.com/mpiress/linear_list). Assim, antes de apresentar as modificações existêntes nessa implementação, vejamos uma representação gráfica do modelo dinâmico em questão. Observe as nomenclaturas utilizadas na figura, essas são utilizadas na implementação fornecida, as quais podem estar definidas/parametrizadas no idioma inglês.
 	</p>
 
@@ -86,6 +88,24 @@
 	<p align="center">
 		<img src="imagens/remover.png"/> 
 	</p> 
+	
+	Nossa estrutura é um pouco diferente da estrutura convencional de listas dinâmicas, pois consiste em várias Listas Dinâmicas dentro de si mesmas. A partir do seguinte trecho de código é possível entender a organização:
+	
+	Vamos entender os passos do mais específico para o mais generalista. No arquivo "palavra.hpp", a <i>struct</i> "Word" armazena alguns dados sobre uma palavra específica, que são: a própria palavra numa <i>string</i>, a quantidades de vezes que a palavra apareceu num <i>short int</i>, o valor ASCII da palavra (resultado da soma do valor ASCII de cada caractere) num <i>short int</i>, a inicial da palavra num <i>char</i> e o resultado do cálculo de TF/IDF da palavra num <i>float</i>.
+	
+	<p align="center">
+		<img src="imagens/palavraHPP.png"/> 
+	</p>
+	
+	Já em "listPals.hpp", a <i>struct</i> "Palavras" possui uma lista de palavras de um certo tamanho, a quantidade de palavras e o tamanho em uma variável <i>int</i>.
+	
+	<p align="center">
+		<img src="imagens/listPalsHPP.png"/> 
+	</p>
+	
+	<p align="center">
+		<img src="imagens/documentoHPP.png"/> 
+	</p>
 
 - <h2>Método para extrair palavras dos documentos</h2>
 
@@ -98,9 +118,9 @@
 	
 	TF-IDF significa <i>Term Frequency – Inverse Document Frequency</i>. Essa expressão pode ser traduzida para o português como “Frequência do Termo – Frequência Inversa dos Documentos”.
 	
-	TF se refere à “frequência do termo”. Essa parte do cálculo responde à pergunta: com que frequência o termo aparece nesse documento? Quanto maior for a frequência no documento, maior será a importância do termo.
+	TF se refere à “frequência do termo”. Essa parte do cálculo responde à pergunta: com que frequência o termo aparece nesse documento? <b>Quanto maior for a frequência no documento, maior será a importância do termo.</b>
 
-	Já o IDF significa “frequência inversa dos documentos”. Nessa parte, a ferramenta responde: com que frequência o termo aparece em todos os documentos da coleção? Quanto maior for a frequência nos documentos, menor será a importância do termo.
+	Já o IDF significa “frequência inversa dos documentos”. Nessa parte, a ferramenta responde: com que frequência o termo aparece em todos os documentos da coleção? <b>Quanto maior for a frequência nos documentos, menor será a importância do termo.</b>
 
 	O cálculo do IDF considera que termos que se repetem frequentemente nos textos — como artigos e conjunções (a, o, e, mas, que etc.) — não têm relevância para os documentos e, no caso do Google, para a indexação e o rankeamento.
 
@@ -109,6 +129,30 @@
 	<p align="center">
 		<img src="imagens/esquema.png"/> 
 	</p> 
+	
+	<h3>Limitações do TF/IDF</h3>
+
+	- <h4>Palavras-chave e intenção</h4>
+			Ao focar apenas nas primeiras páginas nos resultados de pesquisa, as ferramentas TF-IDF SEO (<i>Search Engine Optimization</i>) correm o risco 				de analisar páginas que não são realmente seus concorrentes. Eles também podem segmentar sites que operam em nichos diferentes do seu próprio site.
+			Além disso, o conteúdo desses sites pode ser muito longo ou superficial demais para fornecer uma comparação útil com seu próprio conteúdo.
+			
+	- <h4>Limitações de tamanho da amostra</h4>
+			O banco de dados do Google para TF-IDF consiste em todas as páginas da Internet que ele indexou. Nenhuma outra ferramenta de SEO tem acesso a 				esse banco de dados. Como resultado, o melhor que eles podem fazer é usar estimativas aproximadas, com precisão incerta.
+			Na verdade, as ferramentas TF-IDF frequentemente examinam apenas as 10 ou 20 principais páginas dos resultados de pesquisa do Google.
+			
+	<h3>Implementação do TF-IDF no código</h3>
+	
+	- <h4>TF</h2>
+		<p align="center">
+			<img src="imagens/TF.png"/> 
+		</p> 
+		Escrever aqui
+		
+	- <h4>IDF</h2>
+		<p align="center">
+			<img src="imagens/IDF.png"/> 
+		</p> 
+		Escrever aqui
 	
 
 # Resultados
