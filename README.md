@@ -110,7 +110,7 @@
 		<img src="imagens/esquema.png"/> 
 	</p> 
 	
-	<h3>Limitações do TF-IDF</h3>
+	<h3>Limitações do TF/IDF</h3>
 
 	- <h4>Palavras-chave e intenção</h4>
 			Ao focar apenas nas primeiras páginas nos resultados de pesquisa, as ferramentas TF-IDF SEO (<i>Search Engine Optimization</i>) correm o risco 				de analisar páginas que não são realmente seus concorrentes. Eles também podem segmentar sites que operam em nichos diferentes do seu próprio site.
