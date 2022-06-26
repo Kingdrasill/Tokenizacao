@@ -90,11 +90,22 @@
 	</p> 
 	
 	Nossa estrutura é um pouco diferente da estrutura convencional de listas dinâmicas, pois consiste em várias Listas Dinâmicas dentro de si mesmas. A partir do seguinte trecho de código é possível entender a organização:
+	
+	Vamos entender os passos do mais específico para o mais generalista. No arquivo "palavra.hpp", a <i>struct</i> "Word" armazena alguns dados sobre uma palavra específica, que são: a própria palavra numa <i>string</i>, a quantidades de vezes que a palavra apareceu num <i>short int</i>, o valor ASCII da palavra (resultado da soma do valor ASCII de cada caractere) num <i>short int</i>, a inicial da palavra num <i>char</i> e o resultado do cálculo de TF/IDF da palavra num <i>float</i>.
+	
 	<p align="center">
 		<img src="imagens/palavraHPP.png"/> 
 	</p>
 	
-	A <i>struct</i> "Word" armazena alguns dados sobre uma palavra específica, que são: a própria palavra numa <i>string</i>, a quantidades de vezes que a palavra apareceu num <i>short int</i>, o valor ASCII da palavra (resultado da soma do valor ASCII de cada caractere) num <i>short int</i>, a inicial da palavra num <i>char</i> e o resultado do cálculo de TF/IDF da palavra num <i>float</i>.
+	Já em "listPals.hpp", a <i>struct</i> "Palavras" possui uma lista de palavras de um certo tamanho, a quantidade de palavras e o tamanho em uma variável <i>int</i>.
+	
+	<p align="center">
+		<img src="imagens/listPalsHPP.png"/> 
+	</p>
+	
+	<p align="center">
+		<img src="imagens/documentoHPP.png"/> 
+	</p>
 
 - <h2>Método para extrair palavras dos documentos</h2>
 
