@@ -1,6 +1,6 @@
 #include "functions.hpp"
 
-void preencheLista(List<Documento> *lDoc){
+std::chrono::steady_clock::time_point preencheLista(List<Documento> *lDoc){
     Block<Documento> *aux;
     List<Palavras> lPal;
     std::fstream myFile;
@@ -20,6 +20,7 @@ void preencheLista(List<Documento> *lDoc){
 	        createDocument(lDoc, nomeArquivo);
         myFile.close();
     }
+    std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
     aux=lDoc->cabeca;
     while (aux->prox!=nullptr)
     {
@@ -47,6 +48,7 @@ void preencheLista(List<Documento> *lDoc){
         aux=aux->prox;
         myFile.close();
     }
+    return begin;
 }
 void preencheListaStpW(List<Palavras> *lPal){
     std::fstream myFile;
@@ -81,13 +83,13 @@ void removeStopWords(List<Documento> *docs, List<Palavras> *stopWords) {
     FLVazia(stopWords);
 }
 
-void ranking(List<Documento> *Doc){
+std::chrono::steady_clock::time_point ranking(List<Documento> *Doc){
     Block<Documento> *docRunner;
     std::string linha,palavra;
-    linha="avanço tecnológico";
+    linha="Nunca é demais lembrar o peso e o significado destes problemas, uma vez que o conceito de diáthesis e os princípios fundamentais de rhytmos e arrythmiston facilita a criação do sistema de formação de quadros que corresponde às necessidades lógico-estruturais. Como Deleuze eloquentemente mostrou, o início da atividade geral de formação de conceitos obstaculiza a apreciação da importância dos paradigmas filosóficos. Acabei de provar que o desafiador cenário globalizado não oferece uma interessante oportunidade para verificação dos relacionamentos verticais entre as hierarquias conceituais. Se estivesse vivo, Foucault diria que o Übermensch de Nietzsche, ou seja, o Super-Homem, acarreta um processo de reformulação e modernização da substancialidade e causalidade entendidos como certezas fundamentais. Pretendo demonstrar que a expansão dos mercados mundiais pode nos levar a considerar a reestruturação das ciências discursivas.";
     linha.append(" ");
 
-	std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+	
     docRunner = Doc -> cabeca;
     while(docRunner->prox != nullptr) {
         docRunner->prox->dado.value = 0;
@@ -100,7 +102,7 @@ void ranking(List<Documento> *Doc){
     }
     BubbleSort(Doc);
 	std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
-	printf("%ld\n", std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count());
+    return end;
 }
 void BubbleSort(List<Documento> *Doc){
     Block<Documento> *auxi,*auxj;
