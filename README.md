@@ -112,6 +112,7 @@
 - <h2>Método de remoção das stop words</h2>
 
 	Através do método removeStopWords(), dois auxiliares são criados, sendo o primeiro que percorre cada lista de tamanho, e o segundo que percorre palavra por palavra desta lista. Assim, o método  removeWordFromDocuments() é chamado para remover as palavras do documento.
+	
 	As stop words da lista de tamanho 1 são comparadas a lista de tamanho 1 de todos os documentos. Esse processo é repetido para os tamanhos 2, 3, ..., n até que todas as listas de tamanho das stop words sejam percorridas e as palavras removidas dos documentos.
 
 	<p align="center">
