@@ -84,12 +84,10 @@ void removeStopWords(List<Documento> *docs, List<Palavras> *stopWords) {
 void ranking(List<Documento> *Doc){
     Block<Documento> *docRunner;
     std::string linha,palavra;
-
-    printf("Escreva a Frase que deseja procurar:\n");
-    std::cin>>linha;
-
+    linha="avanço tecnológico";
     linha.append(" ");
 
+	std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
     docRunner = Doc -> cabeca;
     while(docRunner->prox != nullptr) {
         docRunner->prox->dado.value = 0;
@@ -101,8 +99,9 @@ void ranking(List<Documento> *Doc){
         docRunner = docRunner->prox;
     }
     BubbleSort(Doc);
+	std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+	printf("%ld\n", std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count());
 }
-
 void BubbleSort(List<Documento> *Doc){
     Block<Documento> *auxi,*auxj;
     auxi=Doc->cabeca->prox;
