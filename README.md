@@ -177,8 +177,6 @@
 
 # Resultados
 
-# Conclusão
-
 # Participantes
 
 - Bárbara Braga Gualberto Correa<br>
