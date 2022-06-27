@@ -110,6 +110,7 @@
 	</p>
 
 - <h2>Método de remoção das stop words</h2>
+	gkofm hkofgm nojfgjonf
 
 - <h2>Método de busca</h2>
 
