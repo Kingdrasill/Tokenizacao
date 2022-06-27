@@ -86,17 +86,27 @@ void removeStopWords(List<Documento> *docs, List<Palavras> *stopWords) {
 std::chrono::steady_clock::time_point ranking(List<Documento> *Doc){
     Block<Documento> *docRunner;
     std::string linha,palavra;
+    int valor;
+
     linha="Nunca é demais lembrar o peso e o significado destes problemas, uma vez que o conceito de diáthesis e os princípios fundamentais de rhytmos e arrythmiston facilita a criação do sistema de formação de quadros que corresponde às necessidades lógico-estruturais. Como Deleuze eloquentemente mostrou, o início da atividade geral de formação de conceitos obstaculiza a apreciação da importância dos paradigmas filosóficos. Acabei de provar que o desafiador cenário globalizado não oferece uma interessante oportunidade para verificação dos relacionamentos verticais entre as hierarquias conceituais. Se estivesse vivo, Foucault diria que o Übermensch de Nietzsche, ou seja, o Super-Homem, acarreta um processo de reformulação e modernização da substancialidade e causalidade entendidos como certezas fundamentais. Pretendo demonstrar que a expansão dos mercados mundiais pode nos levar a considerar a reestruturação das ciências discursivas.";
+
     linha.append(" ");
 
-	
     docRunner = Doc -> cabeca;
     while(docRunner->prox != nullptr) {
         docRunner->prox->dado.value = 0;
         std::stringstream X(linha);
         while(getline(X, palavra, ' ')){
+            while(palavra.back() == ',' || palavra.back() =='.' || palavra.back() =='!' || palavra.back() =='?' || palavra.back() ==';' || palavra.back() ==':' || palavra.back() ==')' || palavra.back() =='-' || palavra.back() =='\'' || palavra.back() =='\"' || palavra.back() =='/')
+                palavra.pop_back();
+            while(palavra.front()=='('||palavra.front()=='-'||palavra.front()=='\''||palavra.front()=='\"')
+                palavra.erase(palavra.begin());
+            valor=palavra[1];
+            if(palavra.front()==-61 && valor>=-128 && valor<=-99)
+                palavra[1]=palavra[1]+32;
             std::transform(palavra.begin(), palavra.end(), palavra.begin(),[](unsigned char c){ return std::tolower(c); });
-            docRunner->prox->dado.value = docRunner->prox->dado.value + buscaTFIDF(&docRunner->prox->dado.documento, palavra);
+            if (palavra.size()>0)
+                docRunner->prox->dado.value = docRunner->prox->dado.value + buscaTFIDF(&docRunner->prox->dado.documento, palavra);
         }
         docRunner = docRunner->prox;
     }
