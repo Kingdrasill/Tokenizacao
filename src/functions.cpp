@@ -85,6 +85,7 @@ void removeStopWords(List<Documento> *docs, List<Palavras> *stopWords) {
 void ranking(List<Documento> *Doc){
     Block<Documento> *docRunner;
     std::string linha,palavra;
+    int valor;
 
     printf("Escreva a Frase que deseja procurar:\n");
     std::cin>>linha;
@@ -96,8 +97,16 @@ void ranking(List<Documento> *Doc){
         docRunner->prox->dado.value = 0;
         std::stringstream X(linha);
         while(getline(X, palavra, ' ')){
+            while(palavra.back() == ',' || palavra.back() =='.' || palavra.back() =='!' || palavra.back() =='?' || palavra.back() ==';' || palavra.back() ==':' || palavra.back() ==')' || palavra.back() =='-' || palavra.back() =='\'' || palavra.back() =='\"' || palavra.back() =='/')
+                palavra.pop_back();
+            while(palavra.front()=='('||palavra.front()=='-'||palavra.front()=='\''||palavra.front()=='\"')
+                palavra.erase(palavra.begin());
+            valor=palavra[1];
+            if(palavra.front()==-61 && valor>=-128 && valor<=-99)
+                palavra[1]=palavra[1]+32;
             std::transform(palavra.begin(), palavra.end(), palavra.begin(),[](unsigned char c){ return std::tolower(c); });
-            docRunner->prox->dado.value = docRunner->prox->dado.value + buscaTFIDF(&docRunner->prox->dado.documento, palavra);
+            if (palavra.size()>0)
+                docRunner->prox->dado.value = docRunner->prox->dado.value + buscaTFIDF(&docRunner->prox->dado.documento, palavra);
         }
         docRunner = docRunner->prox;
     }
