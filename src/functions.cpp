@@ -1,6 +1,6 @@
 #include "functions.hpp"
 
-void preencheLista(List<Documento> *lDoc){
+std::chrono::steady_clock::time_point preencheLista(List<Documento> *lDoc){
     Block<Documento> *aux;
     List<Palavras> lPal;
     std::fstream myFile;
@@ -20,6 +20,7 @@ void preencheLista(List<Documento> *lDoc){
 	        createDocument(lDoc, nomeArquivo);
         myFile.close();
     }
+    std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
     aux=lDoc->cabeca;
     while (aux->prox!=nullptr)
     {
@@ -47,8 +48,8 @@ void preencheLista(List<Documento> *lDoc){
         aux=aux->prox;
         myFile.close();
     }
+    return begin;
 }
-
 void preencheListaStpW(List<Palavras> *lPal){
     std::fstream myFile;
     std::string caminho,palavras;
