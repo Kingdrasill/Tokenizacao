@@ -6,6 +6,7 @@ int main(){
 	char resposta='S';
 	FLVazia(&LD);
 	FLVazia(&StpW);
+	preencheLista(&LD);
 	preencheListaStpW(&StpW);
 	removeStopWords(&LD, &StpW);
 	std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
