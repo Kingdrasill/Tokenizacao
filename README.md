@@ -124,6 +124,18 @@
 
 - <h2>Método de busca</h2>
 
+	- <h3>TF/IDF</h3>
+		O TF/IDF é uma estatística que mede a importância de uma palavra em um corpo de texto quando comparada a uma coleção maior de outros documentos. Se uma palavra aparece muitas vezes em um documento, essa palavra se torna mais importante. Mas quando essa palavra também aparece com frequência em outros documentos, ela perde importância.
+
+		TF/IDF significa Term Frequency Inverse Document Frequency. Ele é explicado com mais detalhes em um tópico separado abaixo
+
+	- <h3>Ranqueamento</h3>
+		O Ranqueamento é feito de tal forma a obter uma frase desejada do usuário, e procurar o valor do tfidf de cada palavra da frase em cada documento, obtendo assim o valor de cada documento para dada frase. A partir do valor obtido para cada documento utilizamos um bubble sort para ordenar os documentos de forma que o de maior valor fique em primeiro.
+		
+	<p align="center">
+		<img src="imagens/ranking.png"/> 
+	</p> 
+
 - <h2>TF/IDF</h2>
 	TF-IDF é um cálculo estatístico que mede a importância de uma palavra em um texto quando comparado com uma coleção maior de outros documentos. Se uma palavra aparece muitas vezes em um documento, a palavra se torna mais importante. Mas quando essa palavra também aparece frequentemente em outros documentos, ela perde importância.
 	
