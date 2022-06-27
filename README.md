@@ -124,18 +124,6 @@
 
 - <h2>Método de busca</h2>
 
-	- <h3>TF/IDF</h3>
-		O TF/IDF é uma estatística que mede a importância de uma palavra em um corpo de texto quando comparada a uma coleção maior de outros documentos. Se uma palavra aparece muitas vezes em um documento, essa palavra se torna mais importante. Mas quando essa palavra também aparece com frequência em outros documentos, ela perde importância.
-
-		TF/IDF significa Term Frequency Inverse Document Frequency. Ele é explicado com mais detalhes em um tópico separado abaixo
-
-	- <h3>Ranqueamento</h3>
-		O Ranqueamento é feito de tal forma a obter uma frase desejada do usuário, e procurar o valor do tfidf de cada palavra da frase em cada documento, obtendo assim o valor de cada documento para dada frase. A partir do valor obtido para cada documento utilizamos um bubble sort para ordenar os documentos de forma que o de maior valor fique em primeiro.
-		
-	<p align="center">
-		<img src="imagens/ranking.png"/> 
-	</p> 
-
 - <h2>TF/IDF</h2>
 	TF-IDF é um cálculo estatístico que mede a importância de uma palavra em um texto quando comparado com uma coleção maior de outros documentos. Se uma palavra aparece muitas vezes em um documento, a palavra se torna mais importante. Mas quando essa palavra também aparece frequentemente em outros documentos, ela perde importância.
 	
@@ -165,17 +153,31 @@
 			
 	<h3>Implementação do TF-IDF no código</h3>
 	
-	- <h4>TF</h2>
+	- <h4>TF</h4>
 		<p align="center">
 			<img src="imagens/TF.png"/> 
 		</p> 
-		Escrever aqui
+		São criados blocos auxiliares das estruturas Documento (<i>aux</i>), Palavras (<i>percorre</i>) e Word (<i>palavras</i>). O método recebe a lista de documentos e aponta a variável <i>aux</i> para a cabeça dessa lista. Como a cabeça está vazia, o primeiro while percorre a lista enquanto <i>aux->prox</i> tiver um valor válido (diferente de null).
+		Depois, a variável <i>percorre</i> recebe a cabeça da lista de palavras do documento. Como a cabeça está vazia, o segundo while percorre a lista enquanto <i>percorre->prox</i> tiver um valor válido (diferente de null).
+		Posteriormente, a variável <i>palavras</i> recebe a cabeça da lista de palavras separadas por tamanho. Como a cabeça está vazia, o terceiro while percorre a lista enquanto <i>palavras->prox</i> tiver um valor válido (diferente de null). Neste terceiro while, é feito o cálculo do TF. 
+		$$TF=\frac{número\:de\:ocorrências\:da\:palavra\:no\:documento}{número\:de\:palavras\:do\:documento}$$
+		O número de ocorrência da palavra no documento é representado no código como <i>palavras->prox->dado.qtd</i> e o número de palavras do documento é representado no código como <i>aux->prox->dado.qtd</i>. 
+		Na contrução do cálculo utilizamos <i>static_cast<float></i> para garantir que o resultado fosse expresso no tipo float.
+		Então, salvamos o valor de <i>tf</i> calculado na variável <i>tfidf</i> de cada palavra da lista (<i>palavras->prox->dado.tfidf</i>).
+		Por último, chamamos logo em seguida a função <i>IDF</i>.
 		
-	- <h4>IDF</h2>
+	- <h4>IDF</h4>
 		<p align="center">
 			<img src="imagens/IDF.png"/> 
 		</p> 
-		Escrever aqui
+		O método para percorrer as estruturas do IDF é o mesmo do TF, a mudança feita é na hora do cáculo que acontece no terceiro while. O cálculo do IDF é dado pela seguinte fórmula: 
+		$$IDF=\log _{10}\left(\frac{número\:de\:documentos}{número\:de\:documentos\:em\:que\:a\:palavra\:aparece}\right)$$
+	 	É feito um teste de condição antes do cálculo, ele chama a função <i>buscaPDocument(aux->prox,palavras->prox->dado.palavra)</i>, se ela retorna uma valor verdadeiro, é feita a conta do cálcula acima onde o número de documentos é representado por >i>list->qtd</i> e o número de documentos em que a palavra aparece é dado pela função <i>calcularAparicaoPalavra(list,palavras->prox->dado.palavra)</i>.
+		Então, tiramos o logaritmo na base dez da divisão desses valores e multiplicamos pelo valor que já estava salvo na váriavel <i>palavras->prox->dado.tfidf</i> da palavra, que é o valor de <i>tf</i> qeu calculamos anteriormente. Assim, obtivemos o valor de <i>tfidf</i> que é salvo na variável <i>palavras->prox->dado.tfidf</i>.
+		<h5>bool buscaPDocument(aux->prox,palavras->prox->dado.palavra)</h5>
+		Retorna o valor da função <i>buscaLPTamanho(&doc->dado.documento,palavra)</i>
+			 <h6>bool buscaLPTamnho(List<Palavras>*lista,std::string palavra)</h6>
+	Nessa função, é criada um Bloco auxiliar de lista de palavras e uma variável <i>tam</i> que recebe o tamanho da palavra que veio para o método. Pegamos a cabeça da lista que recebemos e atribuímos à variável <i>aux</i>. Como a cabeça da lista está vazia, o while percorre a lista enquanto <i>aux->prox</i> tiver um valor válido (diferente de null). Então tem uma condição de que se <i>aux->prox->dado.listPal</i> for do tamanho da palavra, chamamos o método <i>pesquisaPalavra(&aux->prox->dado.listPal, palavra)</i>, isso evita que o algoritmo pesquise em todas as listas de tamanho do código para tentar achar a palavra desejada. Se esse método retornar true(que significa que há a palavra no documento, ele retorna true.
 	
 
 # Custo Computacional
