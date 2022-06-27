@@ -26,8 +26,6 @@
     
     3- Utilizando uma entrada com algumas palavras, mostrar em ordem de importância os documentos avaliados. </p>
 
-# Custo Computacional
-
 # Estrutura do Problema
 
 - <h2>Estrutura utilizada</h2>
@@ -180,7 +178,243 @@
 		Escrever aqui
 	
 
+# Custo Computacional
+
+Podemos analisar alguns custos computacionais a partir de certas variáveis:
+
+<ul>
+  <li>T -> Quantidade de documentos</li>
+  <li>m -> Quantidade de linhas do documento</li>
+  <li>m<sub>s</sub> -> Quantidade de linhas do documento de stopWords</li>
+  <li>p -> Quantidade de palavras da linha</li>
+  <li>c -> Quantidade de caracteres por palavra</li>
+  <li>h -> Tamanho da lista de palavras por tamanho</li>
+  <li>h<sub>s</sub> -> Tamanho da lista de stopWords por tamanho</li>
+  <li>g -> Tamanho da lista de palavras</li>
+  <li>g<sub>s</sub> -> Tamanho da lista de stopWords</li>
+</ul>
+
+<h4>Destes temos os seguintes custos médios de métodos mais relevantes:</h4>
+<h5>Métodos de inserção:</h5>
+
+$$preencheLista=T+T\left(mp\left(3+\left(\frac{3g}{4}+\frac{h}{2}+c\right)\right)+T\right)\qquad\qquad insertListaPalavra=\frac{3g}{4}+c\qquad\qquad insertLPTamanho=\frac{3g}{4}+\frac{h}{2}+c$$
+
+<h5>Métodos de stopWords:</h5>
+
+$$preencheListaStpw=(m_{s}+1)\left(\frac{3g}{4}+\frac{h}{2}+c\right)\qquad\qquad removeStopWords=h_{s}\*g_{s}\left(T\left(\frac{h}{2}+g\right)\right)$$
+
+
+<h5>Métodos de TF-IDF:</h5>
+
+$$TF=Thg+Thg(h+g)\qquad\qquad idf=Thg(h+g)\qquad\qquad CalculaAparicao=\left(\frac{h}{2}+\frac{g}{2}\right)$$
+
+<h5>Métodos de ranqueamento:</h5>
+
+$$ranking=T\left(\frac{h}{2}+\frac{g}{2}\right)+T^2$$
+
 # Resultados
+
+Para obtermos resultados de tempo na execução do nosso programa, fizemos testes em áreas separadas do programas, sendo elas:     
+<ol>
+  <li>Extração de palavras dos documentos base presentes em arquivos, inserção na fila e remoção das StopWords</li>
+  <li>Cálculo do TD-IDF de cada palavra</li>
+  <li>Ranqueamento das palavras baseado na frase "avanço tecnológico"</li>
+</ol>    
+A frase foi escolhida pois não está presente em todos os documentos e possui quantidade diversas.     
+
+Os seguintes resultados de tempo foram obtidos:     
+
+<table>
+<thead>
+  <tr>
+    <th>Integrante&nbsp;&nbsp;&nbsp;1</th>
+    <th>Integrante 2</th>
+    <th>Integrante 3</th>
+    <th>Integrante 4</th>
+    <th>Integrante 5</th>
+    <th>Integrante 6</th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+	  <td colspan="6"><div align="center">Preenchimento de Listas e remoçao de Stopwords</div></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>389</td>
+    <td>261</td>
+    <td>209</td>
+    <td>275</td>
+    <td>402</td>
+    <td>371</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>381</td>
+    <td>365</td>
+    <td>204</td>
+    <td>215</td>
+    <td>354</td>
+    <td>327</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>324</td>
+    <td>371</td>
+    <td>215</td>
+    <td>239</td>
+    <td>388</td>
+    <td>404</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>275</td>
+    <td>452</td>
+    <td>202</td>
+    <td>233</td>
+    <td>376</td>
+    <td>388</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>444</td>
+    <td>362</td>
+    <td>202</td>
+    <td>209</td>
+    <td>379</td>
+    <td>345</td>
+    <td>Média dos integrantes (ms):</td>
+  </tr>
+  <tr>
+    <td>362,60</td>
+    <td>362,20</td>
+    <td>206,40</td>
+    <td>234,20</td>
+    <td>379,80</td>
+    <td>367,00</td>
+    <td>318,70</td>
+  </tr>
+  <tr>
+    <td colspan="6"><div align="center">Cálculo do TF-IDF</div></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>9</td>
+    <td>12</td>
+    <td>8</td>
+    <td>16</td>
+    <td>15</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>10</td>
+    <td>20</td>
+    <td>8</td>
+    <td>17</td>
+    <td>15</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>10</td>
+    <td>14</td>
+    <td>8</td>
+    <td>16</td>
+    <td>14</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>10</td>
+    <td>15</td>
+    <td>8</td>
+    <td>16</td>
+    <td>14</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>10</td>
+    <td>14</td>
+    <td>8</td>
+    <td>17</td>
+    <td>14</td>
+    <td>Média dos integrantes (ms):</td>
+  </tr>
+  <tr>
+    <td>10,60</td>
+    <td>9,80</td>
+    <td>15,00</td>
+    <td>8,00</td>
+    <td>16,40</td>
+    <td>14,40</td>
+    <td>12,37</td>
+  </tr>
+  <tr>
+    <td colspan="6"><div align="center">Ranqueamento baseado&nbsp;&nbsp;&nbsp;de frase "avanço tecnológico"</div></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>Média dos integrantes (ms):</td>
+  </tr>
+  <tr>
+    <td>0,00</td>
+    <td>0,00</td>
+    <td>0,00</td>
+    <td>0,00</td>
+    <td>0,00</td>
+    <td>0,00</td>
+    <td>0,00</td>
+  </tr>
+</tbody>
+</table>
+
+Esse resulado de tempo foi obtido retirando a média de cada participante, e a média total do grupo para cada parte. Essa média é importante para evitar bloqueios de hardware, fazendo com que a média seja independete do mesmo.
 
 # Participantes
 
