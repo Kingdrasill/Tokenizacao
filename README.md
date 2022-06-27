@@ -211,20 +211,35 @@ Podemos analisar alguns custos computacionais a partir de certas variáveis:
 <h4>Destes temos os seguintes custos médios de métodos mais relevantes:</h4>
 <h5>Métodos de inserção:</h5>
 
-$$preencheLista=T+T\left(mp\left(3+\left(\frac{3g}{4}+\frac{h}{2}+c\right)\right)+T\right)\qquad\qquad insertListaPalavra=\frac{3g}{4}+c\qquad\qquad insertLPTamanho=\frac{3g}{4}+\frac{h}{2}+c$$
+$preencheLista=T+T\left(mp\left(3+\left(\frac{3g}{4}+\frac{h}{2}+c\right)\right)+T\right)\qquad\qquad$
+<br>
+<br>
+$insertListaPalavra=\frac{3g}{4}+c\qquad\qquad$
+<br>
+<br>
+$insertLPTamanho=\frac{3g}{4}+\frac{h}{2}+c$
 
 <h5>Métodos de stopWords:</h5>
 
-$$preencheListaStpw=(m_{s}+1)\left(\frac{3g}{4}+\frac{h}{2}+c\right)\qquad\qquad removeStopWords=h_{s}\*g_{s}\left(T\left(\frac{h}{2}+g\right)\right)$$
+$preencheListaStpw=(m_{s}+1)\left(\frac{3g}{4}+\frac{h}{2}+c\right)\qquad\qquad$
+<br>
+<br>
+$removeStopWords=h_{s}\*g_{s}\left(T\left(\frac{h}{2}+g\right)\right)$
 
 
 <h5>Métodos de TF-IDF:</h5>
 
-$$TF=Thg+Thg(h+g)\qquad\qquad idf=Thg(h+g)\qquad\qquad CalculaAparicao=\left(\frac{h}{2}+\frac{g}{2}\right)$$
+$TF=Thg+Thg(h+g)\qquad\qquad$ 	
+<br>
+<br>
+$idf=Thg(h+g)\qquad\qquad$
+<br>
+<br>
+$CalculaAparicao=\left(\frac{h}{2}+\frac{g}{2}\right)$
 
 <h5>Métodos de ranqueamento:</h5>
 
-$$ranking=T\left(\frac{h}{2}+\frac{g}{2}\right)+T^2$$
+$ranking=T\left(\frac{h}{2}+\frac{g}{2}\right)+T^2$
 
 # Resultados
 
