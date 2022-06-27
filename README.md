@@ -110,7 +110,21 @@
 	</p>
 
 - <h2>Método de remoção das stop words</h2>
-	gkofm hkofgm nojfgjonf
+	<p align="center">
+		<img src="imagens/insertPalavra1.png"/> 
+	</p> 
+	
+	<p align="center">
+		<img src="imagens/insertPalavra2.png"/> 
+	</p> 
+	
+	<p align="center">
+		<img src="imagens/insertTamanho1.png"/> 
+	</p> 
+	
+	<p align="center">
+		<img src="imagens/insertTamanho2.png"/> 
+	</p> 
 
 - <h2>Método de busca</h2>
 
