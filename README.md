@@ -111,6 +111,16 @@
 
 - <h2>Método de remoção das stop words</h2>
 
+	
+
+	<p align="center">
+		<img src="imagens/removeSW.png"/> 
+	</p> 
+	
+	<p align="center">
+		<img src="imagens/removeFromDoc.png"/> 
+	</p> 
+
 - <h2>Método de busca</h2>
 
 - <h2>TF/IDF</h2>
