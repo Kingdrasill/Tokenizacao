@@ -4,15 +4,18 @@ void preencheLista(List<Documento> *lDoc){
     Block<Documento> *aux;
     List<Palavras> lPal;
     std::fstream myFile;
-    int quantidadeArquivos, valor;
+    int quantidadeArquivos=6, valor;
     std::string nomeArquivo,caminho,palavras,linha;
-	printf("Quantos arquivos deseja inserir?\n");
-    scanf("%d",&quantidadeArquivos);
-	printf("Escreva o nome dos arquivos:\n");
+    std::string arquivos[6]={"filosofia.txt","filosofia2.txt","globalizacao.txt","politica.txt","ti.txt","ti2.txt"};
+    
+	//printf("Quantos arquivos deseja inserir?\n");
+    //scanf("%d",&quantidadeArquivos);
+	//printf("Escreva o nome dos arquivos:\n");
     for (int i = 0; i < quantidadeArquivos; i++)
     {
         caminho="arquivos/";
-        std::cin>>nomeArquivo;
+        //std::cin>>nomeArquivo;
+        nomeArquivo=arquivos[i];
         myFile.open(caminho.append(nomeArquivo));
         if (!myFile)
             printf("Arquivo não encontrado\n");
@@ -66,7 +69,6 @@ void preencheListaStpW(List<Palavras> *lPal){
     myFile.close();
 }
 
-
 void removeStopWords(List<Documento> *docs, List<Palavras> *stopWords) {
     Block<Palavras> *SWRunner;
     Block<Word> *WordRunner;
@@ -83,34 +85,48 @@ void removeStopWords(List<Documento> *docs, List<Palavras> *stopWords) {
 }
 
 void ranking(List<Documento> *Doc){
+    std::fstream myFile;
     Block<Documento> *docRunner;
-    std::string linha,palavra;
+    std::string linha,nomeArquivo,caminho,palavra;
     int valor;
 
-    printf("Escreva a Frase que deseja procurar:\n");
-    std::cin>>linha;
+    // printf("Escreva o nome dos arquivo de frases que deseja ranquear:\n");
+    caminho="arquivos/";
+    // std::cin>>nomeArquivo;
+    nomeArquivo="frases.txt";
+    myFile.open(caminho.append(nomeArquivo));
+    if (!myFile)
+        printf("Arquivo não encontrado\n");
+    else{
+        while (getline(myFile,linha,'\n'))
+        {
+            linha.append(" ");
 
-    linha.append(" ");
-
-    docRunner = Doc -> cabeca;
-    while(docRunner->prox != nullptr) {
-        docRunner->prox->dado.value = 0;
-        std::stringstream X(linha);
-        while(getline(X, palavra, ' ')){
-            while(palavra.back() == ',' || palavra.back() =='.' || palavra.back() =='!' || palavra.back() =='?' || palavra.back() ==';' || palavra.back() ==':' || palavra.back() ==')' || palavra.back() =='-' || palavra.back() =='\'' || palavra.back() =='\"' || palavra.back() =='/')
-                palavra.pop_back();
-            while(palavra.front()=='('||palavra.front()=='-'||palavra.front()=='\''||palavra.front()=='\"')
-                palavra.erase(palavra.begin());
-            valor=palavra[1];
-            if(palavra.front()==-61 && valor>=-128 && valor<=-99)
-                palavra[1]=palavra[1]+32;
-            std::transform(palavra.begin(), palavra.end(), palavra.begin(),[](unsigned char c){ return std::tolower(c); });
-            if (palavra.size()>0)
-                docRunner->prox->dado.value = docRunner->prox->dado.value + buscaTFIDF(&docRunner->prox->dado.documento, palavra);
+            docRunner = Doc -> cabeca;
+            while(docRunner->prox != nullptr) {
+                docRunner->prox->dado.value = 0;
+                std::stringstream X(linha);
+                while(getline(X, palavra, ' ')){
+                    while(palavra.back() == ',' || palavra.back() =='.' || palavra.back() =='!' || palavra.back() =='?' || palavra.back() ==';' || palavra.back() ==':' || palavra.back() ==')' || palavra.back() =='-' || palavra.back() =='\'' || palavra.back() =='\"' || palavra.back() =='/')
+                        palavra.pop_back();
+                    while(palavra.front()=='('||palavra.front()=='-'||palavra.front()=='\''||palavra.front()=='\"')
+                        palavra.erase(palavra.begin());
+                    valor=palavra[1];
+                    if(palavra.front()==-61 && valor>=-128 && valor<=-99)
+                        palavra[1]=palavra[1]+32;
+                    std::transform(palavra.begin(), palavra.end(), palavra.begin(),[](unsigned char c){ return std::tolower(c); });
+                    if (palavra.size()>0)
+                        docRunner->prox->dado.value = docRunner->prox->dado.value + buscaTFIDF(&docRunner->prox->dado.documento, palavra);
+                }
+                docRunner = docRunner->prox;
+            }
+            BubbleSort(Doc);
+            printf("Ranqueamento da frase \"%s\":\n",linha.c_str());
+            printDocOrd(Doc);
+            printf("\n");
         }
-        docRunner = docRunner->prox;
     }
-    BubbleSort(Doc);
+    myFile.close();
 }
 
 void BubbleSort(List<Documento> *Doc){

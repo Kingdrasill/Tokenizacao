@@ -13,11 +13,11 @@ int main(){
 	while (resposta=='S')
 	{
 		ranking(&LD);
-		printDocOrd(&LD);
-		printf("Deseja buscar outra frase? (S/N)\n");
-		std::cin.ignore(10000, '\n');
-		std::cin>>resposta;
-		resposta=std::toupper(resposta);
+		//printf("Deseja buscar outra frase? (S/N)\n");
+		//std::cin.ignore(10000, '\n');
+		//std::cin>>resposta;
+		//resposta=std::toupper(resposta);
+		resposta='N';
 	}
 
 	return 0;
