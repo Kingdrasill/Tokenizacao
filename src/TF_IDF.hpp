@@ -3,6 +3,8 @@
 
 #include "functions.hpp"
 #include <cmath>
+#include <cctype>
+#include <chrono>
 
 void TF(List<Documento>*list);  ///Adiciona tf a variavel tfidf
 void IDF(List<Documento>*list); ///Multiplica idf da palavra pelo tf ja salvo na variavel tfidf e atualiza o valor de tfidf

@@ -1,6 +1,7 @@
 #include "TF_IDF.hpp"
 
 int main(){
+	std::chrono::steady_clock::time_point comeco = std::chrono::steady_clock::now();
 	List<Documento> LD;
 	List<Palavras> StpW;
 	char resposta='S';
@@ -19,6 +20,7 @@ int main(){
 		//resposta=std::toupper(resposta);
 		resposta='N';
 	}
-
+	std::chrono::steady_clock::time_point fim=std::chrono::steady_clock::now();
+	printf("%ld ms\n", std::chrono::duration_cast<std::chrono::milliseconds>(fim - comeco).count());
 	return 0;
 }
