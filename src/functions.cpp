@@ -87,14 +87,12 @@ void removeStopWords(List<Documento> *docs, List<Palavras> *stopWords) {
 void ranking(List<Documento> *Doc){
     std::fstream myFile;
     Block<Documento> *docRunner;
-    std::string linha,nomeArquivo,caminho,palavra;
+    std::string linha,palavra;
     int valor;
 
-    // printf("Escreva o nome dos arquivo de frases que deseja ranquear:\n");
-    caminho="arquivos/";
-    // std::cin>>nomeArquivo;
-    nomeArquivo="frases.txt";
-    myFile.open(caminho.append(nomeArquivo));
+    // printf("Escreva a Frase que deseja procurar:\n");
+    // std::cin>>linha;
+    myFile.open("arquivos/frases.txt");
     if (!myFile)
         printf("Arquivo não encontrado\n");
     else{
