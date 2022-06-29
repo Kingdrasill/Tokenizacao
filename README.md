@@ -184,12 +184,16 @@
 		</p> 
 		O método para percorrer as estruturas do IDF é o mesmo do TF, a mudança feita é na hora do cáculo que acontece no terceiro while. O cálculo do IDF é dado pela seguinte fórmula: 
 		$$IDF=\log _{10}\left(\frac{número\:de\:documentos}{número\:de\:documentos\:em\:que\:a\:palavra\:aparece}\right)$$
-	 	É feito um teste de condição antes do cálculo, ele chama a função <i>buscaPDocument(aux->prox,palavras->prox->dado.palavra)</i>, se ela retorna uma valor verdadeiro, é feita a conta do cálcula acima onde o número de documentos é representado por >i>list->qtd</i> e o número de documentos em que a palavra aparece é dado pela função <i>calcularAparicaoPalavra(list,palavras->prox->dado.palavra)</i>.
-		Então, tiramos o logaritmo na base dez da divisão desses valores e multiplicamos pelo valor que já estava salvo na váriavel <i>palavras->prox->dado.tfidf</i> da palavra, que é o valor de <i>tf</i> qeu calculamos anteriormente. Assim, obtivemos o valor de <i>tfidf</i> que é salvo na variável <i>palavras->prox->dado.tfidf</i>.
+	 	É feito um teste de condição antes do cálculo, ele chama a função <i>buscaPDocument(aux->prox,palavras->prox->dado.palavra)</i>, se ela retorna uma valor verdadeiro, é feita a conta do calcula acima onde o número de documentos é representado por >i>list->qtd</i> e o número de documentos em que a palavra aparece é dado pela função <i>calcularAparicaoPalavra(list,palavras->prox->dado.palavra)</i>.
+		Então, tiramos o logaritmo na base dez da divisão desses valores e multiplicamos pelo valor que já estava salvo na variável <i>palavras->prox->dado.tfidf</i> da palavra, que é o valor de <i>tf</i> que calculamos anteriormente. Assim, obtivemos o valor de <i>tfidf</i> que é salvo na variável <i>palavras->prox->dado.tfidf</i>.
 		<h5>bool buscaPDocument(aux->prox,palavras->prox->dado.palavra)</h5>
-		Retorna o valor da função <i>buscaLPTamanho(&doc->dado.documento,palavra)</i>
-			 <h6>bool buscaLPTamnho(List<Palavras>*lista,std::string palavra)</h6>
-	Nessa função, é criada um Bloco auxiliar de lista de palavras e uma variável <i>tam</i> que recebe o tamanho da palavra que veio para o método. Pegamos a cabeça da lista que recebemos e atribuímos à variável <i>aux</i>. Como a cabeça da lista está vazia, o while percorre a lista enquanto <i>aux->prox</i> tiver um valor válido (diferente de null). Então tem uma condição de que se <i>aux->prox->dado.listPal</i> for do tamanho da palavra, chamamos o método <i>pesquisaPalavra(&aux->prox->dado.listPal, palavra)</i>, isso evita que o algoritmo pesquise em todas as listas de tamanho do código para tentar achar a palavra desejada. Se esse método retornar true(que significa que há a palavra no documento, ele retorna true.
+		 Retorna o valor da função <i>buscaLPTamanho(&doc->dado.documento,palavra)</i>
+		<h5>bool buscaLPTamnho(List<Palavras>*lista,std::string palavra)</h5>
+		Nessa função, é criada um Bloco auxiliar de lista de palavras e uma variável <i>tam</i> que recebe o tamanho da palavra que veio para o método. Pegamos a cabeça da lista que recebemos e atribuímos à variável <i>aux</i>. Como a cabeça da lista está vazia, o while percorre a lista enquanto <i>aux->prox</i> tiver um valor válido (diferente de null). Então tem uma condição de que se <i>aux->prox->dado.listPal</i> for do tamanho da palavra, chamamos o método <i>pesquisaPalavra(&aux->prox->dado.listPal, palavra)</i>, isso evita que o algoritmo pesquise em todas as listas de tamanho do código para tentar achar a palavra desejada. Se esse método retornar true(que significa que há a palavra no documento), o método retorna true.
+
+		<h5>int calcularAparicaoPalavra(list,palavras->prox->dado.palavra)</h5>
+		Nessa função, é criada um Bloco auxiliar de documento e faz ele receber a cabeça da lista. Como a cabeça está vazia, o while começa no <i>aux->prox</i>. Dentro de um if é chamada a <i>buscaLPTamnho(List<Palavras>*lista,std::string palavra)</i> e se ela retorna true, a variável soma é incrementada e depois do fim do while ela é retornada.
+
 	
 
 # Custo Computacional
